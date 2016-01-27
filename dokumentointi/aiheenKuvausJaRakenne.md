@@ -9,6 +9,6 @@
 
 **Luokkakaavio:**
 
-![Luokkakaavio](Kaaviot/Luokkakaavio2.png)
+![Luokkakaavio](Kaaviot/Luokkakaavio.png)
 
-(edit later -osoite: http://yuml.me/edit/085768dc)
+(edit later -osoite: http://yuml.me/edit/d5283664)
