@@ -8,5 +8,7 @@
 - reseptien lisääminen
 
 **Luokkakaavio:**
-![Luokkakaavio](Kaaviot/Luokkakaavio.png)
+
+![Luokkakaavio](Kaaviot/Luokkakaavio2.png)
+
 (edit later -osoite: http://yuml.me/edit/085768dc)
