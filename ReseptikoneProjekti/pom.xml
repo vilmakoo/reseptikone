@@ -36,10 +36,10 @@
                 <version>1.1.8</version>
                 <configuration>
                     <targetClasses>
-                        <param>fi.reseptikone.*</param>
+                        <param>fi.reseptikone.logiikka.*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>fi.reseptikone.*</param>
+                        <param>fi.reseptikone.logiikka.*</param>
                     </targetTests>
                 </configuration>
             </plugin>
