@@ -1,7 +1,7 @@
 # Reseptikone
 Ohjelmoinnin harjoitustyö 2016
 
-Reseptikone arpoo ruokaohjeen, jonka ainesosat ovat valmiiksi kaapissa.
+Reseptikone, joka arpoo käyttäjälle ruokaohjeen, jonka ainesosat ovat valmiiksi käyttäjän kaapissa.
 
 ## Dokumentaatio
 
