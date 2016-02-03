@@ -6,10 +6,12 @@ public class Resepti {
     
     private String nimi;
     private ArrayList<Ainesosa> ainesosat;
+    private String ohje;
     
-    public Resepti(String nimi, ArrayList<Ainesosa> ainesosat) {
+    public Resepti(String nimi, ArrayList<Ainesosa> ainesosat, String ohje) {
         this.nimi = nimi;
         this.ainesosat = ainesosat;
+        this.ohje = ohje;
     }
     
     public String getNimi() {
@@ -25,14 +27,11 @@ public class Resepti {
     }
     
     public ArrayList listaaAinesosat() { //palauttaa listan ainesosista
-        ArrayList<Ainesosa> nimet = new ArrayList<Ainesosa>();
-        for (Ainesosa ainesosa : this.ainesosat) {
-            nimet.add(ainesosa);
-        }
-        return nimet;
+        return this.ainesosat;
     }
     
-    public String ohje() {
-        return this.nimi + this.listaaAinesosatOhjeeseen();
+    @Override
+    public String toString() {
+        return this.nimi + this.listaaAinesosatOhjeeseen() + "\n\n" + this.ohje;
     }
 }

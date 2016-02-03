@@ -1,31 +1,33 @@
 package fi.reseptikone.logiikka;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Reseptinhakukone {
     
-    private ArrayList<Resepti> reseptit; // lista koneen sisältämistä resepteistä
-    private ArrayList<Ainesosa> kaikkiAinesosat; //lista kaikista ainesosista
+    private KaikkiReseptit reseptit; // lista koneen sisältämistä resepteistä
+    private KaikkiAinesosat kaikkiAinesosat;
     
     public Reseptinhakukone() {
-        this.reseptit = new ArrayList<Resepti>();
+        this.reseptit = new KaikkiReseptit();
+        this.kaikkiAinesosat = new KaikkiAinesosat();
     }
     
-    public String listaaReseptit() { // listaa koneen sisältämäien reseptien nimet
-        ArrayList<String> reseptienNimet = new ArrayList<String>();
-        for (Resepti resepti : this.reseptit) {
-            reseptienNimet.add(resepti.getNimi());
-        }
-        String lista = "";
-        for (String nimi : reseptienNimet) {
-            lista = lista + nimi + "\n";
-        }
-        return lista;
+    public List<String> listaKaikistaAinesosista() { // lista kaikista mahdollisista ainesosista
+        return this.kaikkiAinesosat.getKaikki();
     }
     
-    public void lisaaResepti(String nimi, ArrayList<Ainesosa> ainesosat) { // käyttäjä voi lisätä reseptin koneeseen
-        Resepti resepti = new Resepti(nimi, ainesosat);
-        this.reseptit.add(resepti);
+//    public String listaaReseptienNimet() { // listaa koneen sisältämäien reseptien nimet
+//        String lista = "";
+//        for (String nimi : this.reseptit.getReseptienNimet()) {
+//            lista = lista + nimi + "\n";
+//        }
+//        return lista;
+//    }
+    
+    public void lisaaResepti(String nimi, ArrayList<Ainesosa> ainesosat, String ohje) { // käyttäjä voi lisätä reseptin koneeseen
+        Resepti resepti = new Resepti(nimi, ainesosat, ohje);
+        this.reseptit.lisaaResepti(resepti);
     }
     
     public void tulostaKauppalista(Resepti resepti, ArrayList<Ainesosa> kaapissaOlevatAinesosat) {
@@ -33,14 +35,12 @@ public class Reseptinhakukone {
         System.out.println(kauppalista.toString());
     }
     
-    public void reseptinHaku() {
-        // tulostaa kaikki ainesosat
-        // käyttäjä syöttää kaapissaan olevat ainekset metodissa kaapissaOlevienAinestenSyotto
-        // kone hakee reseptin jossa on tarvittavat ainekset
+    public void reseptinHaku() { // etsii resepteistä sellaisen, jossa on käyttäjän antamat ainesosat
+        
     }
     
     public ArrayList<Ainesosa> henkilonKaapissaOlevatAinekset() {
         Henkilo henkilo = new Henkilo();
-        return henkilo.getKaapinSisalto();
+        return henkilo.kerroKaapinSisalto();
     }
 }

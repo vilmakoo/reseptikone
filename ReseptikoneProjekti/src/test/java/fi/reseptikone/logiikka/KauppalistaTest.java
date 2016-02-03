@@ -40,7 +40,7 @@ public class KauppalistaTest {
 //        kaapissaOlevatAinekset.add("maito");
         reseptinAinekset = new ArrayList<Ainesosa>();
         kaapissaOlevatAinekset = new ArrayList<Ainesosa>();
-        kauppalista = new Kauppalista(new Resepti("velli", reseptinAinekset), kaapissaOlevatAinekset);
+//        kauppalista = new Kauppalista(new Resepti("velli", reseptinAinekset, "Sekoita ainekset keskenään."), kaapissaOlevatAinekset);
     }
     
     @After
@@ -59,7 +59,7 @@ public class KauppalistaTest {
     @Test
     public void kauppalistaOnSamaKuinReseptinAineksetJosKaapissaEiOleMitaan() {
         reseptinAinekset = resepti();
-        kauppalista = new Kauppalista(new Resepti("velli", reseptinAinekset), kaapissaOlevatAinekset);
+        kauppalista = new Kauppalista(new Resepti("velli", reseptinAinekset, ""), kaapissaOlevatAinekset);
         assertEquals("maito\njauho\n", kauppalista.toString());
     }
     
@@ -67,7 +67,7 @@ public class KauppalistaTest {
     public void kauppalistaOnSamaKuinReseptinAineksetJosKaapissaEiMitaanReseptinAineksia() {
         reseptinAinekset = resepti();
         kaapissaOlevatAinekset.add(new Ainesosa("banaani"));
-        kauppalista = new Kauppalista(new Resepti("velli", reseptinAinekset), kaapissaOlevatAinekset);
+        kauppalista = new Kauppalista(new Resepti("velli", reseptinAinekset, ""), kaapissaOlevatAinekset);
         assertEquals("maito\njauho\n", kauppalista.toString());
     }
     
@@ -75,7 +75,7 @@ public class KauppalistaTest {
     public void kauppalistaMuodostuuOikeinJosKaapissaJotainReseptinAineksista() {
         reseptinAinekset = resepti();
         kaapissaOlevatAinekset.add(new Ainesosa("maito"));
-        kauppalista = new Kauppalista(new Resepti("velli", reseptinAinekset), kaapissaOlevatAinekset);
+        kauppalista = new Kauppalista(new Resepti("velli", reseptinAinekset, ""), kaapissaOlevatAinekset);
         assertEquals("jauho\n", kauppalista.toString());
     }
 }

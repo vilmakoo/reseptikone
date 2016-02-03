@@ -36,13 +36,13 @@ public class HenkiloTest {
 
     @Test
     public void kaapissaEiOleMitaanJosSinneEiOleLisattyMitaan() {
-        assertEquals(0, henkilo.getKaapinSisalto().size());
+        assertEquals(0, henkilo.kerroKaapinSisalto().size());
     }
     
     @Test
     public void kaappiEiOleTyhjäJosSinneOnLisattyJotain() {
         henkilo.lisaaAinesKaappiin(new Ainesosa("banaani"));
-        assertTrue(!henkilo.getKaapinSisalto().isEmpty());
+        assertTrue(!henkilo.kerroKaapinSisalto().isEmpty());
     }
     
     @Test
@@ -51,7 +51,7 @@ public class HenkiloTest {
         henkilo.lisaaAinesKaappiin(new Ainesosa("banaani"));
         
         int maara = 0;
-        for (Ainesosa ainesosa : henkilo.getKaapinSisalto()) {
+        for (Ainesosa ainesosa : henkilo.kerroKaapinSisalto()) {
             if (ainesosa.getNimi().equals("banaani")) {
                 maara++;
             }

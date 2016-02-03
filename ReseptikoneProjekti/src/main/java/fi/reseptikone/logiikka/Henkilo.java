@@ -9,7 +9,7 @@ public class Henkilo {
         this.kaapissaOlevatAinekset = new ArrayList<Ainesosa>();
     }
     
-    public ArrayList<Ainesosa> getKaapinSisalto() {
+    public ArrayList<Ainesosa> kerroKaapinSisalto() {
         return this.kaapissaOlevatAinekset;
     }
     
