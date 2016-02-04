@@ -21,3 +21,15 @@ Käytetty aika: 2 tuntia
 Ajankäytön kohde: Koodaamista, testien luomista, pit-raportin luominen
 
 Käytetty aika: 4 tuntia
+
+**Keskiviikko 3.2.2016**
+
+Ajankäytön kohde: Koodaaminen
+
+Käytetty aika: 2 tuntia
+
+**Torstai 4.2.2016**
+
+Ajankäytön kohde: Koodaaminen
+
+Käytetty aika: 2 tuntia

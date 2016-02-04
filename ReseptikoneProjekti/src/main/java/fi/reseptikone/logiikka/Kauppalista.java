@@ -12,7 +12,7 @@ public class Kauppalista {
     // sekä lista ainesosista, jotka ovat valmiiksi kaapissa
     public Kauppalista(Resepti resepti, ArrayList<Ainesosa> kaapissaOlevatAinesosat) {
         this.kauppalista = new ArrayList<Ainesosa>();
-        this.reseptinAinesosat = resepti.listaaAinesosat();
+        this.reseptinAinesosat = resepti.getAinesosat();
         this.kaapissaOlevatAinesosat = kaapissaOlevatAinesosat;
         
         this.luoKauppalista(); // konstruktori luo kauppalistan
