@@ -8,29 +8,26 @@ import java.util.Scanner;
 public class Resepti {
     
     private String nimi;
-    private ArrayList<Ainesosa> ainesosat;
+    private ArrayList<String> ainesosat;
     private String ohje;
-    private File ohjeTiedosto;
-    private File ainesosaTiedosto;
     private Scanner ohjeenLukija;
     private Scanner ainesosienLukija;
     
     public Resepti(String reseptinNimi) throws FileNotFoundException {
         this.nimi = reseptinNimi;
-        String reseptiTiedostonNimi = this.nimi + "/resepti.md";
-        String ainesosaTiedostonNimi = this.nimi + "/ainesosat.md";
-        this.ohjeTiedosto = new File(reseptiTiedostonNimi);
-        this.ainesosaTiedosto = new File(ainesosaTiedostonNimi);
-        this.ohjeenLukija = new Scanner(this.ohjeTiedosto);
-        this.ainesosienLukija = new Scanner(this.ainesosaTiedosto);
+        String polkuOhjeeseen = "reseptit/" + this.nimi + "Ohje.md";
+        String polkuAinesosiin = "reseptit/" + this.nimi + "Ainesosat.md";
+        this.ohjeenLukija = new Scanner(new File(polkuOhjeeseen));
+        this.ainesosienLukija = new Scanner(new File(polkuAinesosiin));
         
         this.muodostaListaAinesosista();
         this.muodostaOhje();
     }
     
     private void muodostaListaAinesosista() {
+        this.ainesosat = new ArrayList<String>();
         while (this.ainesosienLukija.hasNextLine()) {
-            Ainesosa ainesosa = new Ainesosa(this.ainesosienLukija.nextLine());
+            String ainesosa = new String(this.ainesosienLukija.nextLine());
             this.ainesosat.add(ainesosa);
         }
     }
@@ -46,9 +43,10 @@ public class Resepti {
         return this.nimi;
     }
     
-    public ArrayList getAinesosat() { //palauttaa listan ainesosista
+    public ArrayList<String> getAinesosat() { //palauttaa listan ainesosista
         return this.ainesosat;
     }
+    
     
     @Override
     public String toString() {

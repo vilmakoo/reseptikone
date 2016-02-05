@@ -3,19 +3,19 @@ package fi.reseptikone.logiikka;
 import java.util.ArrayList;
 
 public class Henkilo {
-    ArrayList<Ainesosa> kaapissaOlevatAinekset;
+    ArrayList<String> kaapissaOlevatAinekset;
     
     public Henkilo() {
-        this.kaapissaOlevatAinekset = new ArrayList<Ainesosa>();
+        this.kaapissaOlevatAinekset = new ArrayList<String>();
     }
     
-    public ArrayList<Ainesosa> kerroKaapinSisalto() {
+    public ArrayList<String> kerroKaapinSisalto() {
         return this.kaapissaOlevatAinekset;
     }
     
-    public void lisaaAinesKaappiin(Ainesosa ainesosa) {
-        for (Ainesosa kaapissaOlevaAinesosa : this.kaapissaOlevatAinekset) {
-            if (kaapissaOlevaAinesosa.getNimi().equals(ainesosa.getNimi())) {
+    public void lisaaAinesKaappiin(String ainesosa) {
+        for (String kaapissaOlevaAinesosa : this.kaapissaOlevatAinekset) {
+            if (kaapissaOlevaAinesosa.equals(ainesosa)) {
                 return;
             }
         }

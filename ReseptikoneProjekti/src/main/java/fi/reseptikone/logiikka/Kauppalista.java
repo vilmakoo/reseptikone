@@ -2,33 +2,25 @@ package fi.reseptikone.logiikka;
 
 import java.util.ArrayList;
 
-public class Kauppalista {
+public class Kauppalista { 
 
-    private ArrayList<Ainesosa> kauppalista;
-    private ArrayList<Ainesosa> reseptinAinesosat;
-    private ArrayList<Ainesosa> kaapissaOlevatAinesosat;
+    private ArrayList<String> kauppalista;
+    private ArrayList<String> reseptinAinesosat;
+    private ArrayList<String> kaapissaOlevatAinesosat;
 
     // kauppalistan luovalle konstruktorille annetaan resepti, jota ollaan tekemässä,
     // sekä lista ainesosista, jotka ovat valmiiksi kaapissa
-    public Kauppalista(Resepti resepti, ArrayList<Ainesosa> kaapissaOlevatAinesosat) {
-        this.kauppalista = new ArrayList<Ainesosa>();
+    public Kauppalista(Resepti resepti, ArrayList<String> kaapissaOlevatAinesosat) {
+        this.kauppalista = new ArrayList<String>();
         this.reseptinAinesosat = resepti.getAinesosat();
         this.kaapissaOlevatAinesosat = kaapissaOlevatAinesosat;
         
         this.luoKauppalista(); // konstruktori luo kauppalistan
     }
     
-    public ArrayList<String> kaapissaOlevienAinesosienNimet() {
-        ArrayList<String> nimet = new ArrayList<String>();
-        for (Ainesosa ainesosa : this.kaapissaOlevatAinesosat) {
-            nimet.add(ainesosa.getNimi());
-        }
-        return nimet;
-    }
-    
     public void luoKauppalista() {
-        for (Ainesosa ainesosa : this.reseptinAinesosat) {
-            if (!this.kaapissaOlevienAinesosienNimet().contains(ainesosa.getNimi())) {
+        for (String ainesosa : this.reseptinAinesosat) {
+            if (!this.kaapissaOlevatAinesosat.contains(ainesosa)) {
                 // ehtolause tutkii, onko kaapissa reseptiin tarvittava ainesosa valmiina
                 this.kauppalista.add(ainesosa);
             }
@@ -38,8 +30,8 @@ public class Kauppalista {
     @Override
     public String toString() { // palauttaa kauppalistan Stringinä
         String lista = "";
-        for (Ainesosa ainesosa : this.kauppalista) {
-            lista = lista + ainesosa.getNimi() + "\n";
+        for (String ainesosa : this.kauppalista) {
+            lista = lista + ainesosa + "\n";
         }
         return lista;
     }

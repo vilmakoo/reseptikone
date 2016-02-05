@@ -33,3 +33,8 @@ Käytetty aika: 2 tuntia
 Ajankäytön kohde: Koodaaminen
 
 Käytetty aika: 2 tuntia
+
+**Perjantai 5.2.2016**
+
+Ajankäytön kohde: Reseptien luomisen mahdollistaminen, koodaaminen, testien kirjoittaminen
+Käytetty aika: 4 tuntia

@@ -1,7 +1,6 @@
 
 package fi.reseptikone.logiikka;
 
-import fi.reseptikone.logiikka.Ainesosa;
 import fi.reseptikone.logiikka.Henkilo;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -41,22 +40,43 @@ public class HenkiloTest {
     
     @Test
     public void kaappiEiOleTyhjäJosSinneOnLisattyJotain() {
-        henkilo.lisaaAinesKaappiin(new Ainesosa("banaani"));
+        henkilo.lisaaAinesKaappiin("banaani");
         assertTrue(!henkilo.kerroKaapinSisalto().isEmpty());
     }
     
     @Test
     public void josKaappiinLisaaSamanAineksenKaksiKertaaSeOnSiellaVainKerran() {
-        henkilo.lisaaAinesKaappiin(new Ainesosa("banaani"));
-        henkilo.lisaaAinesKaappiin(new Ainesosa("banaani"));
+        henkilo.lisaaAinesKaappiin("banaani");
+        henkilo.lisaaAinesKaappiin("banaani");
         
         int maara = 0;
-        for (Ainesosa ainesosa : henkilo.kerroKaapinSisalto()) {
-            if (ainesosa.getNimi().equals("banaani")) {
+        for (String ainesosa : henkilo.kerroKaapinSisalto()) {
+            if (ainesosa.equals("banaani")) {
                 maara++;
             }
         }
         
         assertEquals(1, maara);
+    }
+    
+    @Test
+    public void kaappiinLisattyAinesOnKaapissa() {
+        henkilo.lisaaAinesKaappiin("banaani");
+        assertEquals(true, henkilo.kerroKaapinSisalto().contains("banaani"));
+    }
+    
+    @Test
+    public void kerroKaapinSisaltoKertooKaikkiKaapissaOlevatAinekset() {
+        henkilo.lisaaAinesKaappiin("banaani");
+        henkilo.lisaaAinesKaappiin("appelsiini");
+        henkilo.lisaaAinesKaappiin("kananmuna");
+        String odotettuTulos = "banaani\nappelsiini\nkananmuna\n";
+        
+        String kaapinsisalto = "";
+        for (String ainesosa : henkilo.kerroKaapinSisalto()) {
+            kaapinsisalto = kaapinsisalto + ainesosa + "\n";
+        }
+        
+        assertEquals(odotettuTulos, kaapinsisalto);
     }
 }
