@@ -57,3 +57,9 @@ Käytetty aika: 1 tunti
 Ajankäytön kohde: Koodaaminen (reseptien haku, käyttöliittymän aloittelu), netbeansin kanssa kamppailu
 
 Käytetty aika: 5 tuntia
+
+**Perjantai 12.2.2016**
+
+Ajankäytön kohde: NetBeansin kanssa hajoaminen, uusi pit-raportti, checkstyle-raportti
+
+Käytetty aika: 3 tuntia

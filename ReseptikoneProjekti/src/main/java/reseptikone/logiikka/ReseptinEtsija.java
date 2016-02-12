@@ -1,6 +1,8 @@
 package reseptikone.logiikka;
 
-// etsii reseptin, jossa on tietyt ainesosat, ja palauttaa sen
+/**
+ * Luokka sisältää toiminnan tiettyjä ainesosia sisältävän reseptin etsimistä varten.
+ */
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,6 +16,16 @@ public class ReseptinEtsija {
     private HashMap<Resepti, Integer> mahdollisetReseptit;
     private Resepti palautettavaResepti;
 
+    /**
+     * Konstruktori.
+     * <p>
+     * Saa parametrinaan kaappi-olion, josta saadaan käyttäjän kaapissa 
+     * olevat ainesosat, minkä jälkeen luodaan lista reseptien nimistä ja alustetaan 
+     * HashMap, jonka avaimina ovat reseptit ja arvoina niistä puuttuvien ainesosien 
+     * määrä.
+     * 
+     * @param kayttajanKaappi 
+     */
     public ReseptinEtsija(Kaappi kayttajanKaappi) {
         kayttajanKaapinSisalto = kayttajanKaappi.getSisalto();
         listaaReseptienNimet();
@@ -26,7 +38,7 @@ public class ReseptinEtsija {
     }
     
 
-    private void muodostaHashMapMahdollisistaResepteistä() {
+    private void muodostaHashMapMahdollisistaResepteista() {
         for (String reseptinNimi : reseptienNimet) {
             Resepti resepti = new Resepti(reseptinNimi);
 
@@ -41,8 +53,17 @@ public class ReseptinEtsija {
         }
     }
 
+    /**
+     * Metodin avulla etsitään käyttäjälle palautettava resepti.
+     * <p>
+     * Ensin muodostetaan HashMap mahdollisista resepteistä. Sen jälkeen 
+     * käydään ne läpi ja valitaan optimaalisin. Jos yhtään sellaista reseptiä, 
+     * joka olisi valmiina käyttäjän kaapissa, ei ole, tulostetaan kauppalista.
+     * 
+     * @return palautettava resepti
+     */
     public Resepti etsiResepti() {
-        muodostaHashMapMahdollisistaResepteistä();
+        muodostaHashMapMahdollisistaResepteista();
 
         int pieninPuuttuvaAinesmaara = kayttajanKaapinSisalto.size();
 

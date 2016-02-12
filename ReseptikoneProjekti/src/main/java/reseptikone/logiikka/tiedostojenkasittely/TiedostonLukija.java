@@ -33,8 +33,7 @@ public class TiedostonLukija {
     public String palautaTiedostoMerkkijonona() {
         String teksti = "";
         while (lukija.hasNextLine()) {
-            String rivi = lukija.nextLine();
-            teksti += rivi + "\n";
+            teksti += lukija.nextLine() + "\n";
         }
         return teksti;
     }

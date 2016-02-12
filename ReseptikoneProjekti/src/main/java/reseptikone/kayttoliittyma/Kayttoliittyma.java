@@ -43,7 +43,7 @@ public class Kayttoliittyma implements Runnable {
     }
     
     private JPanel luoAinesosaValikko() {
-        JPanel panel = new JPanel(new GridLayout(6,2));
+        JPanel panel = new JPanel(new GridLayout(6, 2));
         AinesosalistojenLukija lukija = new AinesosalistojenLukija();
         
         for (String ainesosa : lukija.getAinesosaKategoria("kaikki")) {

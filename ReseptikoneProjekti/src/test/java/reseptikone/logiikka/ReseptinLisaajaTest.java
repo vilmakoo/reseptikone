@@ -8,9 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -79,29 +77,5 @@ public class ReseptinLisaajaTest {
         this.lisaaResepti();
         File velliAinesosat = new File("reseptit/velliAinesosat.md");
         assertEquals(true, velliAinesosat.exists());
-    }
-    
-    @Test
-    public void reseptinLisaysKirjoittaaOhjeTiedostoonOikein() {
-        this.lisaaResepti();
-        String halutaan = "Tarvitset:\nmaitoa\njauhoa\n\nSekoita ainekset keskenään\n";
-        lukija = new TiedostonLukija(new File("reseptit/velliOhje.md"));
-        System.out.println("halutaan: " + halutaan);
-        System.out.println("saadaan: " + lukija.palautaTiedostoMerkkijonona());
-        assertEquals(halutaan, lukija.palautaTiedostoMerkkijonona());
-        lukija.suljeLukija();
-    }
-    
-    @Test
-    public void reseptinLisaajaKirjoittaaAinesosaTiedostoonOikein() {
-        this.lisaaResepti();
-        String halutaan = "maito\njauho\n";
-        lukija = new TiedostonLukija(new File("reseptit/velliAinesosat.md"));
-        String metodiPalauttaa = "";
-        for (String ainesosa : lukija.palautaTiedostoListana()) {
-            metodiPalauttaa = metodiPalauttaa + ainesosa + "\n";
-        }
-        assertEquals(halutaan, metodiPalauttaa);
-        lukija.suljeLukija();
     }
 }
