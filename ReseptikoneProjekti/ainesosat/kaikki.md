@@ -1,0 +1,25 @@
+valkoviini
+punaviini
+omenamehu
+piimä
+appelsiinimehu
+banaani
+tomaatti
+herkkusieni
+paprika
+sipuli
+soijarouhe
+makaroni
+riisi
+auringonkukansiemenet
+cashewpähkinät
+maito
+maitorahka
+soijajuoma
+turkkilainen jogurtti
+juusto
+tomaattimurska
+herkkusieni
+ananas
+kikherne
+hernekeitto

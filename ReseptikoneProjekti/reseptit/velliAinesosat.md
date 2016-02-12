@@ -1,2 +1,0 @@
-maito
-jauho

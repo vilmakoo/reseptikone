@@ -1,14 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package fi.reseptikone.logiikka;
 
+package reseptikone.logiikka;
+
+import reseptikone.logiikka.ReseptinLisaaja;
+import reseptikone.logiikka.Resepti;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Scanner;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,10 +17,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author vilma
- */
 public class ReseptiTest {
     
     private Resepti velli;
@@ -42,12 +39,30 @@ public class ReseptiTest {
     }
     
     @After
-    public void tearDown() {
+    public void tearDown() throws IOException {
         File velliOhje = new File("reseptit/velliOhje.md");
         File velliAinesosat = new File("reseptit/velliAinesosat.md");
         
         velliOhje.delete();
         velliAinesosat.delete();
+        poistaVelliReseptienNimista();
+    }
+    
+    public void poistaVelliReseptienNimista() throws FileNotFoundException, IOException {
+        String nimetIlmanVellia = "";
+        Scanner lukija = new Scanner(new File("reseptit/reseptienNimet.md"));
+        while (lukija.hasNextLine()) {
+            String rivi = lukija.nextLine();
+            if (!rivi.equals("velli")) {
+                nimetIlmanVellia += rivi + "\n";
+            } else {
+                break;
+            }
+        }
+        lukija.close();
+        FileWriter kirjoittaja = new FileWriter("reseptit/reseptienNimet.md");
+        kirjoittaja.write(nimetIlmanVellia);
+        kirjoittaja.close();
     }
 
     public void lisaaResepti() throws UnsupportedEncodingException, IOException {
@@ -56,8 +71,8 @@ public class ReseptiTest {
         ainesosat.add("maito");
         ainesosat.add("jauho");
         String ohje = "Tarvitset:\nmaitoa\njauhoa\n\nSekoita ainekset keskenään";
-        Reseptinhakukone kone = new Reseptinhakukone();
-        kone.lisaaResepti(nimi, ainesosat, ohje);
+        ReseptinLisaaja lisaaja = new ReseptinLisaaja();
+        lisaaja.lisaaResepti(nimi, ainesosat, ohje);
     }
     
     @Test

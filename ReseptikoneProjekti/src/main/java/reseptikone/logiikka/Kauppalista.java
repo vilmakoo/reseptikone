@@ -1,4 +1,4 @@
-package fi.reseptikone.logiikka;
+package reseptikone.logiikka;
 
 import java.util.ArrayList;
 
@@ -15,10 +15,10 @@ public class Kauppalista {
         this.reseptinAinesosat = resepti.getAinesosat();
         this.kaapissaOlevatAinesosat = kaapissaOlevatAinesosat;
         
-        this.luoKauppalista(); // konstruktori luo kauppalistan
+        this.luoKauppalista(); // konstruktori kutsuu kauppalistan luovaa metodia
     }
     
-    public void luoKauppalista() {
+    private void luoKauppalista() {
         for (String ainesosa : this.reseptinAinesosat) {
             if (!this.kaapissaOlevatAinesosat.contains(ainesosa)) {
                 // ehtolause tutkii, onko kaapissa reseptiin tarvittava ainesosa valmiina

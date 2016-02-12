@@ -1,11 +1,12 @@
-package fi.reseptikone.logiikka;
+package reseptikone.logiikka;
 
-import fi.reseptikone.logiikka.Kauppalista;
-import fi.reseptikone.logiikka.Resepti;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Scanner;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,9 +17,8 @@ import static org.junit.Assert.*;
 public class KauppalistaTest {
 
     private Kauppalista kauppalista;
-    private ArrayList<String> reseptinAinekset;
     private ArrayList<String> kaapissaOlevatAinekset;
-    private Reseptinhakukone kone;
+    private ReseptinLisaaja reseptinLisaaja;
 
     public KauppalistaTest() {
     }
@@ -33,13 +33,35 @@ public class KauppalistaTest {
 
     @Before
     public void setUp() {
-        reseptinAinekset = new ArrayList<String>();
         kaapissaOlevatAinekset = new ArrayList<String>();
-        kone = new Reseptinhakukone();
+        reseptinLisaaja = new ReseptinLisaaja();
     }
 
     @After
-    public void tearDown() {
+    public void tearDown() throws FileNotFoundException, IOException {
+        File velliOhje = new File("reseptit/velliOhje.md");
+        File velliAinesosat = new File("reseptit/velliAinesosat.md");
+
+        velliOhje.delete();
+        velliAinesosat.delete();
+        poistaVelliReseptienNimista();
+    }
+    
+    public void poistaVelliReseptienNimista() throws FileNotFoundException, IOException {
+        String nimetIlmanVellia = "";
+        Scanner lukija = new Scanner(new File("reseptit/reseptienNimet.md"));
+        while (lukija.hasNextLine()) {
+            String rivi = lukija.nextLine();
+            if (!rivi.equals("velli")) {
+                nimetIlmanVellia += rivi + "\n";
+            } else {
+                break;
+            }
+        }
+        lukija.close();
+        FileWriter kirjoittaja = new FileWriter("reseptit/reseptienNimet.md");
+        kirjoittaja.write(nimetIlmanVellia);
+        kirjoittaja.close();
     }
     
     public void lisaaResepti() throws UnsupportedEncodingException, IOException {
@@ -48,17 +70,17 @@ public class KauppalistaTest {
         ainesosat.add("maito");
         ainesosat.add("jauho");
         String ohje = "Tarvitset:\nmaitoa\njauhoa\n\nSekoita ainekset keskenään";
-        kone.lisaaResepti(nimi, ainesosat, ohje);
+        reseptinLisaaja.lisaaResepti(nimi, ainesosat, ohje);
     }
 
-//    public ArrayList<String> resepti() {
-//        ArrayList<String> ainekset = new ArrayList<String>();
-//        String maito = "maito";
-//        String jauho = "jauho";
-//        ainekset.add(maito);
-//        ainekset.add(jauho);
-//        return ainekset;
-//    }
+    public ArrayList<String> resepti() {
+        ArrayList<String> ainekset = new ArrayList<String>();
+        String maito = "maito";
+        String jauho = "jauho";
+        ainekset.add(maito);
+        ainekset.add(jauho);
+        return ainekset;
+    }
     
     @Test
     public void kauppalistaOnSamaKuinReseptinAineksetJosKaapissaEiOleMitaan() throws FileNotFoundException, IOException {

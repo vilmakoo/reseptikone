@@ -37,4 +37,23 @@ Käytetty aika: 2 tuntia
 **Perjantai 5.2.2016**
 
 Ajankäytön kohde: Reseptien luomisen mahdollistaminen, koodaaminen, testien kirjoittaminen
+
 Käytetty aika: 4 tuntia
+
+**Maanantai 8.2.2016**
+
+Ajankäytön kohde: Koodaaminen (luokkien vastuiden vähentäminen -> lisää luokkia)
+
+Käytetty aika: 4 tuntia
+
+**Keskiviikko 10.2.2016**
+
+Ajankäytön kohde: JavaDocin valmistelu
+
+Käytetty aika: 1 tunti
+
+**Torstai 11.2.2016**
+
+Ajankäytön kohde: Koodaaminen (reseptien haku, käyttöliittymän aloittelu), netbeansin kanssa kamppailu
+
+Käytetty aika: 5 tuntia

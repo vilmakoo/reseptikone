@@ -1,0 +1,5 @@
+banaani
+tomaatti
+herkkusieni
+paprika
+sipuli

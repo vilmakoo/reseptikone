@@ -1,7 +1,7 @@
 
-package fi.reseptikone.logiikka;
+package reseptikone.logiikka;
 
-import fi.reseptikone.logiikka.Henkilo;
+import reseptikone.logiikka.Kaappi;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -9,11 +9,11 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class HenkiloTest {
+public class KaappiTest {
     
-    private Henkilo henkilo;
+    private Kaappi kaappi;
     
-    public HenkiloTest() {
+    public KaappiTest() {
     }
     
     @BeforeClass
@@ -26,7 +26,7 @@ public class HenkiloTest {
     
     @Before
     public void setUp() {
-        henkilo = new Henkilo();
+        kaappi = new Kaappi();
     }
     
     @After
@@ -35,22 +35,22 @@ public class HenkiloTest {
 
     @Test
     public void kaapissaEiOleMitaanJosSinneEiOleLisattyMitaan() {
-        assertEquals(0, henkilo.kerroKaapinSisalto().size());
+        assertEquals(0, kaappi.getSisalto().size());
     }
     
     @Test
     public void kaappiEiOleTyhjäJosSinneOnLisattyJotain() {
-        henkilo.lisaaAinesKaappiin("banaani");
-        assertTrue(!henkilo.kerroKaapinSisalto().isEmpty());
+        kaappi.lisaaAinesKaappiin("banaani");
+        assertTrue(!kaappi.getSisalto().isEmpty());
     }
     
     @Test
     public void josKaappiinLisaaSamanAineksenKaksiKertaaSeOnSiellaVainKerran() {
-        henkilo.lisaaAinesKaappiin("banaani");
-        henkilo.lisaaAinesKaappiin("banaani");
+        kaappi.lisaaAinesKaappiin("banaani");
+        kaappi.lisaaAinesKaappiin("banaani");
         
         int maara = 0;
-        for (String ainesosa : henkilo.kerroKaapinSisalto()) {
+        for (String ainesosa : kaappi.getSisalto()) {
             if (ainesosa.equals("banaani")) {
                 maara++;
             }
@@ -61,19 +61,19 @@ public class HenkiloTest {
     
     @Test
     public void kaappiinLisattyAinesOnKaapissa() {
-        henkilo.lisaaAinesKaappiin("banaani");
-        assertEquals(true, henkilo.kerroKaapinSisalto().contains("banaani"));
+        kaappi.lisaaAinesKaappiin("banaani");
+        assertEquals(true, kaappi.getSisalto().contains("banaani"));
     }
     
     @Test
     public void kerroKaapinSisaltoKertooKaikkiKaapissaOlevatAinekset() {
-        henkilo.lisaaAinesKaappiin("banaani");
-        henkilo.lisaaAinesKaappiin("appelsiini");
-        henkilo.lisaaAinesKaappiin("kananmuna");
+        kaappi.lisaaAinesKaappiin("banaani");
+        kaappi.lisaaAinesKaappiin("appelsiini");
+        kaappi.lisaaAinesKaappiin("kananmuna");
         String odotettuTulos = "banaani\nappelsiini\nkananmuna\n";
         
         String kaapinsisalto = "";
-        for (String ainesosa : henkilo.kerroKaapinSisalto()) {
+        for (String ainesosa : kaappi.getSisalto()) {
             kaapinsisalto = kaapinsisalto + ainesosa + "\n";
         }
         
