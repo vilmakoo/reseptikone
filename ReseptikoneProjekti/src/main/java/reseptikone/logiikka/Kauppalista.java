@@ -2,20 +2,30 @@ package reseptikone.logiikka;
 
 import java.util.ArrayList;
 
+/**
+ * Kauppalista kertoo ne ainesosat, jotka käyttäjältä puuttuvat.
+ */
 public class Kauppalista { 
 
     private ArrayList<String> kauppalista;
     private ArrayList<String> reseptinAinesosat;
     private ArrayList<String> kaapissaOlevatAinesosat;
 
-    // kauppalistan luovalle konstruktorille annetaan resepti, jota ollaan tekemässä,
-    // sekä lista ainesosista, jotka ovat valmiiksi kaapissa
+    /**
+     * Konstruktori saa parametrinaan reseptin, jota ollaan tekemisissä, ja listan 
+     * ainesosista, jotka ovat valmiiksi käyttäjän kaapissa.
+     * <p>
+     * Suoritetaan oliomuuttujien alustus ja kutsutaan kauppalistan luovaa metodia.
+     * 
+     * @param resepti
+     * @param kaapissaOlevatAinesosat 
+     */
     public Kauppalista(Resepti resepti, ArrayList<String> kaapissaOlevatAinesosat) {
         this.kauppalista = new ArrayList<String>();
         this.reseptinAinesosat = resepti.getAinesosat();
         this.kaapissaOlevatAinesosat = kaapissaOlevatAinesosat;
         
-        this.luoKauppalista(); // konstruktori kutsuu kauppalistan luovaa metodia
+        this.luoKauppalista();
     }
     
     private void luoKauppalista() {
@@ -27,8 +37,13 @@ public class Kauppalista {
         }
     }
     
+    /**
+     * Metodi palauttaa kauppalistan merkkijonona.
+     * 
+     * @return kauppalista
+     */
     @Override
-    public String toString() { // palauttaa kauppalistan Stringinä
+    public String toString() {
         String lista = "";
         for (String ainesosa : this.kauppalista) {
             lista = lista + ainesosa + "\n";

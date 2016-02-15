@@ -3,3 +3,5 @@ tomaatti
 herkkusieni
 paprika
 sipuli
+appelsiini
+mustikka

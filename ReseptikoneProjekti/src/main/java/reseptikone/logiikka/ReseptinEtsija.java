@@ -14,7 +14,6 @@ public class ReseptinEtsija {
     private TiedostonLukija tiedostonLukija;
     private ArrayList<String> reseptienNimet;
     private HashMap<Resepti, Integer> mahdollisetReseptit;
-    private Resepti palautettavaResepti;
 
     /**
      * Konstruktori.
@@ -42,42 +41,57 @@ public class ReseptinEtsija {
         for (String reseptinNimi : reseptienNimet) {
             Resepti resepti = new Resepti(reseptinNimi);
 
-            int kaapistaPuuttuvatAinekset = 0;
+            int kaapistaPuuttuvienAinesosienMaara = 0;
 
             for (String ainesosa : resepti.getAinesosat()) {
                 if (!kayttajanKaapinSisalto.contains(ainesosa)) {
-                    kaapistaPuuttuvatAinekset++;
+                    kaapistaPuuttuvienAinesosienMaara++;
                 }
             }
-            mahdollisetReseptit.put(resepti, kaapistaPuuttuvatAinekset);
+            mahdollisetReseptit.put(resepti, kaapistaPuuttuvienAinesosienMaara);
         }
     }
 
     /**
-     * Metodin avulla etsitään käyttäjälle palautettava resepti.
+     * Metodin avulla etsitään käyttäjän kaapissa oleva resepti.
      * <p>
      * Ensin muodostetaan HashMap mahdollisista resepteistä. Sen jälkeen 
-     * käydään ne läpi ja valitaan optimaalisin. Jos yhtään sellaista reseptiä, 
-     * joka olisi valmiina käyttäjän kaapissa, ei ole, tulostetaan kauppalista.
+     * käydään ne läpi ja valitaan sellainen, jonka ainekset ovat valmiina kaapissa. 
+     * Jos sellaista ei ole, palautetaan null.
      * 
      * @return palautettava resepti
      */
-    public Resepti etsiResepti() {
+    
+    public Resepti etsiKayttajanKaapissaOlevaResepti() {
         muodostaHashMapMahdollisistaResepteista();
 
-        int pieninPuuttuvaAinesmaara = kayttajanKaapinSisalto.size();
+        for (Resepti resepti : mahdollisetReseptit.keySet()) {
+            if (mahdollisetReseptit.get(resepti) == 0) {
+                return resepti;
+            }
+        }
+        return null;
+    }
+    
+    /**
+     * Jos ei ole valmiiksi kaapissa olevaa reseptiä, etsitään seuraavaksi optimaalisin.
+     * 
+     * @return resepti
+     */
+    public Resepti etsiSeuraavaksiOptimaalisinResepti() {
+        muodostaHashMapMahdollisistaResepteista();
+
+        int pieninPuuttuvaAinesmaara = 1000;
+        String palautettavanReseptinNimi = "";
 
         for (Resepti resepti : mahdollisetReseptit.keySet()) {
             if (mahdollisetReseptit.get(resepti) < pieninPuuttuvaAinesmaara) {
                 pieninPuuttuvaAinesmaara = mahdollisetReseptit.get(resepti);
-                palautettavaResepti = resepti;
+                palautettavanReseptinNimi = resepti.getNimi();
             }
         }
-
-        if (pieninPuuttuvaAinesmaara > 0) {
-            Kauppalista kauppalista = new Kauppalista(palautettavaResepti, kayttajanKaapinSisalto);
-            System.out.println(kauppalista);
-        }
+        Resepti palautettavaResepti = new Resepti(palautettavanReseptinNimi);
+        
         return palautettavaResepti;
     }
 

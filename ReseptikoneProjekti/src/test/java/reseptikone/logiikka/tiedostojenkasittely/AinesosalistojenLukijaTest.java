@@ -34,7 +34,7 @@ public class AinesosalistojenLukijaTest {
 
     @Test
     public void metodiGetAinesosaJoukkoToimii() {
-        String halutaan = "banaani\ntomaatti\nherkkusieni\npaprika\nsipuli\n";
+        String halutaan = "banaani\ntomaatti\nherkkusieni\npaprika\nsipuli\nappelsiini\nmustikka\n";
         String saadaan = "";
         for (String ainesosa : listojenLukija.getAinesosaKategoria("kasvikset")) {
             saadaan = saadaan + ainesosa + "\n";

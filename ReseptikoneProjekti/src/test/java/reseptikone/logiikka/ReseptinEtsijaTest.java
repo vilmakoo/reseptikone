@@ -73,9 +73,10 @@ public class ReseptinEtsijaTest {
     }
     
     @Test
-    public void reseptinEtsiminenPalauttaaJonkinReseptin() throws IOException {
+    public void reseptinEtsiminenPalauttaaReseptinJohonAinesosatOnKaapissa() throws IOException {
         lisaaResepti();
+        kaappi.lisaaAinesKaappiin("jauho");
         etsija = new ReseptinEtsija(kaappi);
-        assertEquals("velli", etsija.etsiResepti().getNimi());
+        assertEquals("velli", etsija.etsiKayttajanKaapissaOlevaResepti().getNimi());
     }
 }

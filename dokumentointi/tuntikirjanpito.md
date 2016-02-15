@@ -63,3 +63,9 @@ Käytetty aika: 5 tuntia
 Ajankäytön kohde: NetBeansin kanssa hajoaminen, uusi pit-raportti, checkstyle-raportti
 
 Käytetty aika: 3 tuntia
+
+**Maanantai 15.2.2016**
+
+Ajankäytön kohde: Testien korjailu, tekstikäyttöliittymä
+
+Käytetty aika: 4 tuntia

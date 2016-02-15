@@ -1,9 +1,6 @@
 package reseptikone.logiikka.tiedostojenkasittely;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

@@ -1,0 +1,5 @@
+appelsiini
+banaani
+maitorahka
+mustikka
+soijajuoma

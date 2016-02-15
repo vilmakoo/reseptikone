@@ -1,0 +1,7 @@
+sipuli
+valkosipuli
+punaiset linssit
+tomaattimurska
+suola
+mustapippuri
+chili
