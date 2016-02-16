@@ -1,4 +1,4 @@
-package reseptikone.logiikka;
+package reseptikone.logiikka.reseptinhaku;
 
 import java.io.IOException;
 import reseptikone.logiikka.tiedostojenkasittely.TiedostoonKirjoittaja;

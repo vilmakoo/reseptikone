@@ -1,4 +1,4 @@
-package reseptikone.logiikka;
+package reseptikone.logiikka.reseptinhaku;
 
 import reseptikone.logiikka.tiedostojenkasittely.TiedostonLukija;
 import java.io.File;

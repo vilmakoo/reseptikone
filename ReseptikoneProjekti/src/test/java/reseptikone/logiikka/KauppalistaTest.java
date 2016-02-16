@@ -1,5 +1,7 @@
 package reseptikone.logiikka;
 
+import reseptikone.logiikka.reseptinhaku.Resepti;
+import reseptikone.logiikka.reseptinhaku.ReseptinLisaaja;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;

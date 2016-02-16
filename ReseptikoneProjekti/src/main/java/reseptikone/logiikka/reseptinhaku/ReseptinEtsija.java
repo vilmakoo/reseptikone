@@ -1,4 +1,4 @@
-package reseptikone.logiikka;
+package reseptikone.logiikka.reseptinhaku;
 
 /**
  * Luokka sisältää toiminnan tiettyjä ainesosia sisältävän reseptin etsimistä varten.
@@ -6,6 +6,7 @@ package reseptikone.logiikka;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import reseptikone.logiikka.Kaappi;
 import reseptikone.logiikka.tiedostojenkasittely.TiedostonLukija;
 
 public class ReseptinEtsija {

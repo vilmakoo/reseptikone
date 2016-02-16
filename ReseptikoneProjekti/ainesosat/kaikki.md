@@ -1,4 +1,4 @@
-valkoviini
+kalja
 punaviini
 omenamehu
 piimä

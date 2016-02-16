@@ -1,42 +1,51 @@
-package reseptikone.logiikka;
 
-import reseptikone.logiikka.tiedostojenkasittely.TiedostonLukija;
+package reseptikone.logiikka.reseptinhaku;
+
+import reseptikone.logiikka.reseptinhaku.ReseptinEtsija;
+import reseptikone.logiikka.reseptinhaku.ReseptinLisaaja;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
+import reseptikone.logiikka.Kaappi;
 import static org.junit.Assert.*;
 
-public class ReseptinLisaajaTest {
-
-    private ReseptinLisaaja lisaaja;
-    private TiedostonLukija lukija;
-
-    public ReseptinLisaajaTest() {
-    }
-
-    @Before
-    public void setUp() {
-        lisaaja = new ReseptinLisaaja();
-    }
-
-    @After
-    public void tearDown() throws IOException {
-        poistaTiedostot();
-        poistaVelliReseptienNimista();
+public class ReseptinEtsijaTest {
+    
+    private ReseptinEtsija etsija;
+    private Kaappi kaappi;
+    
+    public ReseptinEtsijaTest() {
     }
     
-    public void poistaTiedostot() {
+    @Before
+    public void setUp() throws IOException {
+        kaappi = new Kaappi();
+        lisaaAineksetKaappiin();
+        
+    }
+    
+    public void lisaaAineksetKaappiin() {
+        kaappi.lisaaAinesKaappiin("kalja");
+        kaappi.lisaaAinesKaappiin("maito");
+        kaappi.lisaaAinesKaappiin("margariini");
+    }
+    
+    public void tearDown() throws FileNotFoundException, IOException {
         File velliOhje = new File("reseptit/velliOhje.md");
         File velliAinesosat = new File("reseptit/velliAinesosat.md");
 
         velliOhje.delete();
         velliAinesosat.delete();
+        poistaVelliReseptienNimista();
     }
     
     public void poistaVelliReseptienNimista() throws FileNotFoundException, IOException {
@@ -55,27 +64,22 @@ public class ReseptinLisaajaTest {
         kirjoittaja.write(nimetIlmanVellia);
         kirjoittaja.close();
     }
-
-    public void lisaaResepti() {
+    
+    public void lisaaResepti() throws UnsupportedEncodingException, IOException {
         String nimi = "velli";
         ArrayList<String> ainesosat = new ArrayList<String>();
         ainesosat.add("maito");
         ainesosat.add("jauho");
         String ohje = "Tarvitset:\nmaitoa\njauhoa\n\nSekoita ainekset keskenään";
-        lisaaja.lisaaResepti(nimi, ainesosat, ohje);
+        ReseptinLisaaja reseptinLisaaja = new ReseptinLisaaja();
+        reseptinLisaaja.lisaaResepti(nimi, ainesosat, ohje);
     }
-
+    
     @Test
-    public void reseptinLisayksenJalkeenReseptitHakemistoSisaltaaReseptinOhjeTiedoston() {
-        this.lisaaResepti();
-        File velliOhje = new File("reseptit/velliOhje.md");
-        assertEquals(true, velliOhje.exists());
-    }
-
-    @Test
-    public void reseptinLisayksenJalkeenReseptitHakemistoSisaltaaReseptinAinesosatTiedoston() {
-        this.lisaaResepti();
-        File velliAinesosat = new File("reseptit/velliAinesosat.md");
-        assertEquals(true, velliAinesosat.exists());
+    public void reseptinEtsiminenPalauttaaReseptinJohonAinesosatOnKaapissa() throws IOException {
+        lisaaResepti();
+        kaappi.lisaaAinesKaappiin("jauho");
+        etsija = new ReseptinEtsija(kaappi);
+        assertEquals("velli", etsija.etsiKayttajanKaapissaOlevaResepti().getNimi());
     }
 }

@@ -1,5 +1,6 @@
 package reseptikone.logiikka;
 
+import reseptikone.logiikka.reseptinhaku.Resepti;
 import java.util.ArrayList;
 
 /**
