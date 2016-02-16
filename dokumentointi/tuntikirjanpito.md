@@ -69,3 +69,9 @@ Käytetty aika: 3 tuntia
 Ajankäytön kohde: Testien korjailu, tekstikäyttöliittymä
 
 Käytetty aika: 4 tuntia
+
+**Tiistai 16.2.2016**
+
+Ajankäytön kohde: Rumahkon graafisen käyttöliittymän koodailemista
+
+Käytetty aika: 3 tuntia
