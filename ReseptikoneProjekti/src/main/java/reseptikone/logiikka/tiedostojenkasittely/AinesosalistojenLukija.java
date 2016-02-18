@@ -26,9 +26,6 @@ public class AinesosalistojenLukija {
         this.ainesosaKategoriat.add("kaikki");
     }
     
-    /**
-     * @return lista ainesosakategorioiden nimistä
-     */
     public ArrayList<String> getKaikkiAinesosaKategoriat() {
         return this.ainesosaKategoriat;
     }
@@ -51,7 +48,7 @@ public class AinesosalistojenLukija {
      * Kutsuu metodia muodostaArrayList, joka lukee ainesosat tiedostosta
      * ja muodostaa niistä ArrayListin.
      * 
-     * @param ainesosaKategorianNimi
+     * @param ainesosaKategorianNimi halutun ainesosakategorian nimi
      * @return lista ainesosista
      */
     public ArrayList<String> getAinesosaKategoria(String ainesosaKategorianNimi) {

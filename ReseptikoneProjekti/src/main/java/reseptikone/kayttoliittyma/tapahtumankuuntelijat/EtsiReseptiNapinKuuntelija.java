@@ -1,39 +1,52 @@
-
-package reseptikone.kayttoliittyma;
+package reseptikone.kayttoliittyma.tapahtumankuuntelijat;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import reseptikone.kayttoliittyma.nakymat.ReseptiNakyma;
 import reseptikone.logiikka.Kaappi;
 import reseptikone.logiikka.Kauppalista;
 import reseptikone.logiikka.reseptinhaku.Resepti;
 import reseptikone.logiikka.reseptinhaku.ReseptinEtsija;
 
+/**
+ * Tapahtumankuuntelija reseptin etsintää varten.
+ */
 public class EtsiReseptiNapinKuuntelija implements ActionListener {
 
     private Kaappi kaappi;
-    
+
+    /**
+     * Alustaa oliomuuttujan kaappi.
+     * 
+     * @param kaappi käyttäjän kaappi
+     */
     public EtsiReseptiNapinKuuntelija(Kaappi kaappi) {
         this.kaappi = kaappi;
     }
-    
+
+    /**
+     * Nappia painettaessa etsii reseptin.
+     *
+     * @param e napin painallus
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         etsiResepti();
     }
-    
-    public void etsiResepti() {
+
+    private void etsiResepti() {
         ReseptinEtsija etsija = new ReseptinEtsija(this.kaappi);
         Resepti resepti = etsija.etsiKayttajanKaapissaOlevaResepti();
         if (resepti != null) {
-            ReseptinNayttaja reseptinNayttaja = new ReseptinNayttaja(resepti, null);
+            ReseptiNakyma reseptinNayttaja = new ReseptiNakyma(resepti, null);
             reseptinNayttaja.run();
         } else {
             resepti = etsija.etsiSeuraavaksiOptimaalisinResepti();
             Kauppalista kauppalista = new Kauppalista(resepti, this.kaappi.getSisalto());
-            ReseptinNayttaja reseptinNayttaja = new ReseptinNayttaja(resepti, kauppalista);
+            ReseptiNakyma reseptinNayttaja = new ReseptiNakyma(resepti, kauppalista);
             reseptinNayttaja.run();
         }
-        
+
     }
-    
+
 }

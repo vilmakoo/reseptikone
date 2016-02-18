@@ -30,8 +30,8 @@ public class ReseptinLisaaja {
      * ohje ja ainesosat ja lisätään reseptin nimi tiedostoon reseptienNimet.
      *
      * @param nimi reseptin nimi
-     * @param ainesosat
-     * @param ohje
+     * @param ainesosat reseptin ainesosat listana
+     * @param ohje reseptin ohje
      */
     public void lisaaResepti(String nimi, ArrayList<String> ainesosat, String ohje) {
         this.reseptinNimi = nimi;

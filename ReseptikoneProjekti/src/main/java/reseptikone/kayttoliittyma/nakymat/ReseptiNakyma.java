@@ -1,33 +1,46 @@
-package reseptikone.kayttoliittyma;
+package reseptikone.kayttoliittyma.nakymat;
 
-import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.WindowConstants;
 import reseptikone.logiikka.Kauppalista;
 import reseptikone.logiikka.reseptinhaku.Resepti;
 
-public class ReseptinNayttaja implements Runnable {
+/**
+ * Näyttää reseptin.
+ */
+public class ReseptiNakyma implements Runnable {
 
     private JFrame frame;
     private Resepti resepti;
     private Kauppalista kauppalista;
 
-    public ReseptinNayttaja(Resepti resepti, Kauppalista kauppalista) {
+    /**
+     * Saa resepti-, ja kauppalista-oliot.
+     * <p>
+     * Kauppalista voi olla null (jos kaikki reseptiin tarvittavat ainesosat
+     * ovat käyttäjän kaapissa).
+     *
+     * @param resepti resepti, joka näytetään
+     * @param kauppalista kauppalista eli puuttuvat ainesosat
+     */
+    public ReseptiNakyma(Resepti resepti, Kauppalista kauppalista) {
         this.resepti = resepti;
         this.kauppalista = kauppalista;
     }
 
+    /**
+     * Määrittelee näkymän ja luo komponentit.
+     * <p>
+     * Komponentit: reseptin nimi ja ohje sekä mahdollinen kauppalista.
+     */
     @Override
     public void run() {
         frame = new JFrame("Reseptisi");
         frame.setPreferredSize(new Dimension(800, 500));
-
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         luoKomponentit(frame.getContentPane());
 

@@ -18,8 +18,8 @@ public class Kauppalista {
      * <p>
      * Suoritetaan oliomuuttujien alustus ja kutsutaan kauppalistan luovaa metodia.
      * 
-     * @param resepti
-     * @param kaapissaOlevatAinesosat 
+     * @param resepti käyttäjän saama resepti
+     * @param kaapissaOlevatAinesosat käyttäjän kaapissa olevat ainekset
      */
     public Kauppalista(Resepti resepti, ArrayList<String> kaapissaOlevatAinesosat) {
         this.kauppalista = new ArrayList<String>();

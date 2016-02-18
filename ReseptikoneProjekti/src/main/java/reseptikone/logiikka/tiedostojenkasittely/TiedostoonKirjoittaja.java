@@ -17,7 +17,7 @@ public class TiedostoonKirjoittaja {
      * Konstruktori luo PrintWriterin, jonka avulla parametrina saadun polun
      * osoittamaan tiedostoon voidaan kirjoittaa.
      *
-     * @param polkuTiedostoon
+     * @param polkuTiedostoon polku haluttuun tiedostoon
      */
     public TiedostoonKirjoittaja(String polkuTiedostoon) {
         try {
@@ -30,7 +30,7 @@ public class TiedostoonKirjoittaja {
     /**
      * Metodi kirjoittaa tiedostoon PrintWriter-luokan metodin println avulla.
      *
-     * @param kirjoitettavaAsia
+     * @param kirjoitettavaAsia asia, joka halutaan kirjoittaa tiedostoon
      */
     public void kirjoita(String kirjoitettavaAsia) {
         this.kirjoittaja.println(kirjoitettavaAsia);

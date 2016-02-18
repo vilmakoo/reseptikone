@@ -15,7 +15,7 @@ public class TiedostonLukija {
      * Konstruktori luo uuden Scanner-olion, jonka avulla luetaan parametrina
      * saatua tiedostoa.
      *
-     * @param tiedosto, joka halutaan lukea
+     * @param tiedosto tiedosto, joka halutaan lukea
      */
     public TiedostonLukija(File tiedosto) {
         try {
