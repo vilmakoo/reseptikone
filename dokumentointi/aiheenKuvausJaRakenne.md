@@ -1,9 +1,11 @@
 **Aihe:** Reseptikone. Toimii periaatteella ”reseptit, jotka ovat jo jääkaapissasi”. Koneeseen syötetään kaapissa olevat ruoka-aineet ja kone arpoo ruokaohjeen, jonka näistä aineksista saa aikaiseksi. Jos ei löydy reseptiä, johon kaikki ainekset löytyvät valmiina, kone kertoo sellaisen reseptin, josta käyttäjältä puuttuu mahdollisimman vähän aineksia, sekä antaa kauppalistan puuttuvista aineksista.
+Käyttäjä voi myös hakea listauksen kaikista koneen sisältämistä resepteistä ja lisätä oman reseptinsä.
 
 **Käyttäjät:** Koneen käyttäjä
 
 **Koneen käyttäjän toiminnot:** 
 - kaapissa olevien ainesten kertominen
+- reseptin haku
 - kaikkien reseptien listaus
 - reseptien lisääminen
 
@@ -12,3 +14,12 @@
 ![Luokkakaavio](Kaaviot/Luokkakaavio3.png)
 
 (edit later -osoite: http://yuml.me/edit/173a1b43)
+
+**Sekvenssikaaviot:**
+
+![AinesosienValitseminen](Kaaviot/aineksienValintaSekvenssiKaavio.png)
+![ReseptinHaku](Kaaviot/reseptinHakuSekvenssiKaavio.png)
+
+(edit later -osoitteet: 
+[Ainesosien valitseminen](https://www.websequencediagrams.com/?lz=dGl0bGUgS8OkeXR0w6Rqw6Qga2VydG9vIGthYXBpc3NhYW4gb2xldmF0IGFpbmVzb3NhdAoKbWFpbi0-KktheXR0b2xpaXR0eW1hOiBuZXcgAAYOKCkKABcOADEFYXBwaQAmCGFwcGkoKQBLBwBBEHJ1bigpCgAyEQBoEGx1b0tvbXBvbmVudGl0AGETAB4TQQCBRwdWYWxpa2tvAIEVFAAbCGxpc3RvamVuTHVraWoAgWAHAAYWAIFcEwAtGACCRghLYXRlZ29yaWF0IDo9IGdldEthaWtraQCBFwgAFQooKQoKbG9vcCBmb3IgZWFjaAAxEiBpbgBFEwogICAAgwgPAIIuFUNoZWNrQm94AIIKCACBEREpCmVuZACCfBIAgUIgAIFRCACBQhEAgUASa2F5dHRhamFuIHZhbGl0c2VtYQCEbgkAgT0KYWoAg3ETACoHZQCFHgluAIFjFQCDTAl2YWxpbm5hbkt1dW50ZWwAg0gRAA4SAIIICSwAhhgFcGkpAIJFFQBFHGFjdGlvblBlcmZvcm1lZCgAPAYAeRotPgCGJQhsaXNhYQCFLwUAhjkGaW4AgxcJAIMRBg&s=roundgreen)
+[Reseptin haku](https://www.websequencediagrams.com/?lz=dGl0bGUgUmVzZXB0aW4gaGFrdSAoam9zIGvDpHl0dMOkasOkbGzDpCBvbiB2YWxtaWlrc2kga2Fpa2tpIGFpbmVzb3NhdCBqb2hvbmtpbiByAEQGaW4pCgptYWluLT4qS2F5dHRvbGlpdHR5bWE6IG5ldyAABg4oKQoAFw4AMQVhcHBpACYIYXBwaSgpAEsHAEEQcnVuKCkKADIRAGgQbHVvS29tcG9uZW50aXQAKQlhagAZE3ZhbGl0c2VlAIFZCgASG3BhaW5hYSBldHNpAIF4CCAtbmFwcGlhAIEEEipFdHNpAIJpB05hcGluS3V1bnRlbGlqAIIUBwAGGihrAIIPBQCCGxIANxxhY3Rpb25QZXJmb3JtZWQoKQoKAGgaAC0eZQCBMAooKQApHSoAhEkIRXRzAIFQCQAGDgAjHwAxEACCUAg6PQCCYwUAgzIIbkthYXBpc3NhT2xldmEAgRMKCgBzDgA-Em1haGRvbGxpc2V0AIV2B3QgOj0gbXVvZG9zdGFIYXNoTWFwTQAeCGlzdABXB2Vpc3RhKCkKCmxvb3AgZm9yIGVhY2gAg28JaW4ARxQKICAgIGFsdCBpZiBwdXV0dHV2aWEAhjcIaWEgb24gMAAfBSAgIACCGQ8tAINBHgCGaQcAXAVlbmQKZW5kAINDHgCDEglOAIV2BwCDDw4ADggAgngnADsKAIZ-BwBOEAAXFACGeBE&s=roundgreen)

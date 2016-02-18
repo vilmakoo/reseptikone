@@ -3,6 +3,8 @@ package reseptikone.kayttoliittyma;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -37,15 +39,33 @@ public class Kayttoliittyma implements Runnable {
     }
 
     private void luoKomponentit(Container container) {
+        container.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+        
         JLabel teksti = new JLabel("Tämä on reseptikone. Kerro kaappisi sisältö "
                 + "ja kone antaa sinulle reseptin!\n");
-        container.add(teksti, BorderLayout.NORTH);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.anchor = GridBagConstraints.PAGE_START;
+        c.gridwidth = 3;
+        c.gridx = 0;
+        c.gridy = 0;
+        container.add(teksti, c);
 
-        container.add(luoAinesosaValikko(), BorderLayout.WEST);
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.anchor = GridBagConstraints.CENTER;
+        c.gridwidth = 3;
+        c.gridx = 0;
+        c.gridy = 3;
+        container.add(luoAinesosaValikko(), c);
 
         JButton etsiReseptiNappi = new JButton("etsi resepti!");
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.anchor = GridBagConstraints.PAGE_END;
+        c.gridwidth = 1;
+        c.gridx = 2;
+        c.gridy = 6;
         etsiReseptiNappi.addActionListener(new EtsiReseptiNapinKuuntelija(this.kaappi));
-        container.add(etsiReseptiNappi, BorderLayout.PAGE_END);
+        container.add(etsiReseptiNappi, c);
     }
 
     private JPanel luoAinesosaValikko() {

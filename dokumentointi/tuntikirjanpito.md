@@ -74,4 +74,4 @@ Käytetty aika: 4 tuntia
 
 Ajankäytön kohde: Rumahkon graafisen käyttöliittymän koodailemista
 
-Käytetty aika: 3 tuntia
+Käytetty aika: 4 tuntia
