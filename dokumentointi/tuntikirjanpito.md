@@ -81,3 +81,9 @@ Käytetty aika: 4 tuntia
 Ajankäytön kohde: Käyttöliittymä on edelleen ruma, mutta edennyt. Sekvenssikaavioitakin tehty
 
 Käytetty aika: 5 tuntia
+
+**Perjantai 19.2.2016**
+
+Ajankäytön kohde: Koodikatselmointi, muutama testi, raportit kuntoon.
+
+Käytetty aika: 3 tuntia

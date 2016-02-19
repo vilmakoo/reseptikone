@@ -1,8 +1,6 @@
 
 package reseptikone.logiikka.reseptinhaku;
 
-import reseptikone.logiikka.reseptinhaku.ReseptinEtsija;
-import reseptikone.logiikka.reseptinhaku.ReseptinLisaaja;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -10,10 +8,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Scanner;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import reseptikone.logiikka.Kaappi;
 import static org.junit.Assert.*;
@@ -37,6 +32,7 @@ public class ReseptinEtsijaTest {
         kaappi.lisaaAinesKaappiin("kalja");
         kaappi.lisaaAinesKaappiin("maito");
         kaappi.lisaaAinesKaappiin("margariini");
+        kaappi.lisaaAinesKaappiin("banaani");
     }
     
     public void tearDown() throws FileNotFoundException, IOException {
@@ -81,5 +77,14 @@ public class ReseptinEtsijaTest {
         kaappi.lisaaAinesKaappiin("jauho");
         etsija = new ReseptinEtsija(kaappi);
         assertEquals("velli", etsija.etsiKayttajanKaapissaOlevaResepti().getNimi());
+    }
+    
+    @Test
+    public void metodiEtsiSeuraavaksiOptimaalisinReseptiPalauttaaOikein() {
+        kaappi.lisaaAinesKaappiin("mustikka");
+        kaappi.lisaaAinesKaappiin("appelsiini");
+        kaappi.lisaaAinesKaappiin("maitorahka");
+        etsija = new ReseptinEtsija(kaappi);
+        assertEquals("hedelmasmoothie", etsija.etsiSeuraavaksiOptimaalisinResepti().getNimi());
     }
 }

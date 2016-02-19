@@ -2,7 +2,6 @@ package reseptikone.logiikka.reseptinhaku;
 
 import reseptikone.logiikka.tiedostojenkasittely.TiedostonLukija;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 /**
