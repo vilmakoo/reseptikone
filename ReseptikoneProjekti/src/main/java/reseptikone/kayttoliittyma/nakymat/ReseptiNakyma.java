@@ -40,7 +40,7 @@ public class ReseptiNakyma implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Reseptisi");
-        frame.setPreferredSize(new Dimension(800, 500));
+        frame.setPreferredSize(new Dimension(1300, 800));
 
         luoKomponentit(frame.getContentPane());
 

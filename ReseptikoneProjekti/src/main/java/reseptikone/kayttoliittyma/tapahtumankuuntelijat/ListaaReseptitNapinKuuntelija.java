@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
+import javax.swing.SwingUtilities;
 import reseptikone.kayttoliittyma.nakymat.KaikkiReseptitNakyma;
 import reseptikone.logiikka.reseptinhaku.Resepti;
 import reseptikone.logiikka.tiedostojenkasittely.TiedostonLukija;
@@ -42,6 +43,6 @@ public class ListaaReseptitNapinKuuntelija implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         KaikkiReseptitNakyma nakyma = new KaikkiReseptitNakyma(reseptit);
-        nakyma.run();
+        SwingUtilities.invokeLater(nakyma);
     }
 }

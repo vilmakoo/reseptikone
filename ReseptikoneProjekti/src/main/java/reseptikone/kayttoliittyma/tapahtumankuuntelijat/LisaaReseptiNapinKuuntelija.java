@@ -21,14 +21,10 @@ public class LisaaReseptiNapinKuuntelija implements ActionListener {
      * @param ainesosat reseptin ainesosat
      * @param ohje reseptin ohje
      */
-    public LisaaReseptiNapinKuuntelija(String nimi, String ainesosat, String ohje) {
+    public LisaaReseptiNapinKuuntelija(String nimi, ArrayList<String> ainesosat, String ohje) {
         this.nimi = nimi;
         this.ohje = ohje;
-        muodostaListaAinesosista(ainesosat);
-    }
-
-    private void muodostaListaAinesosista(String ainesosat) {
-
+        this.ainesosat = ainesosat;
     }
 
     /**

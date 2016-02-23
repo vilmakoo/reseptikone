@@ -2,6 +2,7 @@ package reseptikone.kayttoliittyma.tapahtumankuuntelijat;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.SwingUtilities;
 import reseptikone.kayttoliittyma.nakymat.ReseptinLisaysNakyma;
 
 /**
@@ -14,7 +15,7 @@ public class ReseptinLisaysNakymanAvaaja implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         ReseptinLisaysNakyma reseptinLisaysNakyma = new ReseptinLisaysNakyma();
-        reseptinLisaysNakyma.run();
+        SwingUtilities.invokeLater(reseptinLisaysNakyma);
     }
 
 }

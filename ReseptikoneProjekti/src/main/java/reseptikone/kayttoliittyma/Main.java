@@ -1,5 +1,6 @@
 package reseptikone.kayttoliittyma;
 
+import javax.swing.SwingUtilities;
 import reseptikone.kayttoliittyma.nakymat.Paanakyma;
 
 /**
@@ -11,7 +12,7 @@ public class Main {
 //        TekstiKayttoliittyma ui = new TekstiKayttoliittyma();
 //        ui.suorita();
         Paanakyma gui = new Paanakyma();
-        gui.run();
+        SwingUtilities.invokeLater(gui);
     }
 
 }

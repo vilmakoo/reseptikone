@@ -2,6 +2,7 @@ package reseptikone.kayttoliittyma.tapahtumankuuntelijat;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.SwingUtilities;
 import reseptikone.kayttoliittyma.nakymat.ReseptiNakyma;
 import reseptikone.logiikka.Kaappi;
 import reseptikone.logiikka.Kauppalista;
@@ -39,12 +40,12 @@ public class EtsiReseptiNapinKuuntelija implements ActionListener {
         Resepti resepti = etsija.etsiKayttajanKaapissaOlevaResepti();
         if (resepti != null) {
             ReseptiNakyma reseptinNayttaja = new ReseptiNakyma(resepti, null);
-            reseptinNayttaja.run();
+            SwingUtilities.invokeLater(reseptinNayttaja);
         } else {
             resepti = etsija.etsiSeuraavaksiOptimaalisinResepti();
             Kauppalista kauppalista = new Kauppalista(resepti, this.kaappi.getSisalto());
             ReseptiNakyma reseptinNayttaja = new ReseptiNakyma(resepti, kauppalista);
-            reseptinNayttaja.run();
+            SwingUtilities.invokeLater(reseptinNayttaja);
         }
 
     }

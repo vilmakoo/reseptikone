@@ -45,7 +45,7 @@ public class Paanakyma implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Reseptinhakukone");
-        frame.setPreferredSize(new Dimension(800, 500));
+        frame.setPreferredSize(new Dimension(1300, 800));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 

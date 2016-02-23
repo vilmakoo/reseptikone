@@ -2,6 +2,7 @@ package reseptikone.kayttoliittyma.tapahtumankuuntelijat;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.SwingUtilities;
 import reseptikone.kayttoliittyma.nakymat.ReseptiNakyma;
 import reseptikone.logiikka.reseptinhaku.Resepti;
 
@@ -30,7 +31,7 @@ public class ReseptiNapinKuuntelija implements ActionListener {
 
     private void naytaResepti() {
         ReseptiNakyma nayttaja = new ReseptiNakyma(resepti, null);
-        nayttaja.run();
+        SwingUtilities.invokeLater(nayttaja);
     }
 
 }
