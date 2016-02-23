@@ -3,6 +3,7 @@ package reseptikone.kayttoliittyma.tapahtumankuuntelijat;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import reseptikone.logiikka.reseptinhaku.ReseptinLisaaja;
 
 /**
  * Tapahtumankuuntelija reseptin lisäämistä varten.
@@ -14,6 +15,7 @@ public class LisaaReseptiNapinKuuntelija implements ActionListener {
     private String nimi;
     private ArrayList<String> ainesosat;
     private String ohje;
+    private ReseptinLisaaja lisaaja;
 
     /**
      * Alustaa oliomuuttujat nimi ja ohje ja muodostaa listan ainesosista.
@@ -25,6 +27,7 @@ public class LisaaReseptiNapinKuuntelija implements ActionListener {
         this.nimi = nimi;
         this.ohje = ohje;
         this.ainesosat = ainesosat;
+        this.lisaaja = new ReseptinLisaaja();
     }
 
     /**
@@ -38,7 +41,7 @@ public class LisaaReseptiNapinKuuntelija implements ActionListener {
     }
 
     private void lisaaResepti() {
-
+        lisaaja.lisaaResepti(nimi, ainesosat, ohje);
     }
 
 }

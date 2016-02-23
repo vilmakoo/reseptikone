@@ -87,3 +87,9 @@ Käytetty aika: 5 tuntia
 Ajankäytön kohde: Koodikatselmointi, muutama testi, raportit kuntoon.
 
 Käytetty aika: 3 tuntia
+
+**Maanantai 22.2. ja tiistai 23.2.**
+
+Ajankäytön kohde: Reseptin lisäämisen lisääminen käyttöliittymään, tai sen yrittäminen.
+
+Käytetty aika: viitisen tuntia

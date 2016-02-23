@@ -7,22 +7,20 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.List;
-import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.ListSelectionModel;
-import javax.swing.WindowConstants;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.text.JTextComponent;
 import reseptikone.kayttoliittyma.tapahtumankuuntelijat.LisaaReseptiNapinKuuntelija;
-import reseptikone.kayttoliittyma.tapahtumankuuntelijat.ListavalinnanKuuntelija;
+import reseptikone.kayttoliittyma.tapahtumankuuntelijat.NappaimistonKuuntelija;
 import reseptikone.logiikka.tiedostojenkasittely.AinesosalistojenLukija;
 
 /**
@@ -34,14 +32,9 @@ public class ReseptinLisaysNakyma implements Runnable {
     private String reseptinNimi;
     private ArrayList<String> reseptinAinesosat;
     private String ohje;
-    private String[] kaikkiAinesosat;
-    private boolean onkoAinesosatValittu;
 
     public ReseptinLisaysNakyma() {
-        kaikkiAinesosat = new String[100];
-        muodostaListaAinesosista();
         reseptinAinesosat = new ArrayList<String>();
-        onkoAinesosatValittu = false;
     }
 
     /**
@@ -55,7 +48,7 @@ public class ReseptinLisaysNakyma implements Runnable {
         frame = new JFrame("Lisää resepti");
         frame.setPreferredSize(new Dimension(1300, 800));
 
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         luoKomponentit(frame.getContentPane());
 
@@ -64,81 +57,74 @@ public class ReseptinLisaysNakyma implements Runnable {
     }
 
     private void luoKomponentit(Container container) {
-        container.add(luoReseptinLisaysKentat(), BorderLayout.CENTER);
+        container.setLayout(new GridLayout(7, 2));
 
-        JButton reseptinLisaysNappi = new JButton("Lisää resepti!");
-        reseptinLisaysNappi.addActionListener(new LisaaReseptiNapinKuuntelija(reseptinNimi, reseptinAinesosat, ohje));
-        container.add(reseptinLisaysNappi, BorderLayout.SOUTH);
-    }
-
-    private JPanel luoReseptinLisaysKentat() {
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(6, 2));
-
-        JLabel reseptinNimiTeksti = new JLabel("Anna reseptin nimi:");
+        JLabel reseptinNimiTeksti = new JLabel("Anna reseptin nimi (ilman ääkkösiä):");
         JTextField reseptinNimiKentta = new JTextField();
+        NappaimistonKuuntelija reseptinNimenKuuntelija = new NappaimistonKuuntelija();
+        reseptinNimiKentta.addKeyListener(reseptinNimenKuuntelija);
+        
         JLabel ainesosaTeksti = new JLabel("Valitse ainesosat:");
-        JList ainesosaLista = luoListaAinesosista();
-        lisaaListavalinnanKuuntelija(ainesosaLista);
-        JButton ainesosatValittuNappi = new JButton("ainesosat valittu!");
-//        ainesosatValittuNapinKuuntelija(ainesosatValittuNappi, ainesosaLista);
+        JPanel ainesosaValikko = luoAinesosaValikko();
+        JScrollPane scrollPane = new JScrollPane(ainesosaValikko);
+        
         JLabel ohjeTeksti = new JLabel("Kirjoita ohje, sisältäen ainesosat ja niiden määrät:");
         JTextArea ohjeKentta = new JTextArea();
+        NappaimistonKuuntelija ohjeenKuuntelija = new NappaimistonKuuntelija();
+        ohjeKentta.addKeyListener(ohjeenKuuntelija);
+        
+        JButton reseptinLisaysNappi = new JButton("Lisää resepti!");
+        reseptinLisaysNappi.addActionListener(new LisaaReseptiNapinKuuntelija(reseptinNimenKuuntelija.getTeksti(), reseptinAinesosat, ohjeenKuuntelija.getTeksti()));
+        JButton palaaTakaisinNappi = new JButton("Palaa takaisin");
+        lisaaPalaaTakaisinNapinKuuntelija(palaaTakaisinNappi, this.frame);
 
-        reseptinNimi = reseptinNimiKentta.getText();
-        ohje = ohjeKentta.getText();
-
-        panel.add(reseptinNimiTeksti);
-        panel.add(reseptinNimiKentta);
-        panel.add(new JLabel(""));
-        panel.add(new JLabel(""));
-        panel.add(ainesosaTeksti);
-        panel.add(ainesosaLista);
-        panel.add(new JLabel(""));
-        panel.add(ainesosatValittuNappi);
-        panel.add(new JLabel(""));
-        panel.add(new JLabel(""));
-        panel.add(ohjeTeksti);
-        panel.add(ohjeKentta);
-
+        container.add(reseptinNimiTeksti);
+        container.add(reseptinNimiKentta);
+        container.add(new JLabel(""));
+        container.add(new JLabel(""));
+        container.add(ainesosaTeksti);
+        container.add(scrollPane);
+        container.add(new JLabel(""));
+        container.add(new JLabel(""));
+        container.add(ohjeTeksti);
+        container.add(ohjeKentta);
+        container.add(new JLabel(""));
+        container.add(new JLabel(""));
+        container.add(reseptinLisaysNappi);
+        container.add(palaaTakaisinNappi);
+    }
+    
+    private JPanel luoAinesosaValikko() {
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(50, 3));
+        AinesosalistojenLukija lukija = new AinesosalistojenLukija();
+        for (String ainesosa : lukija.getAinesosaKategoria("kaikki")) {
+            JCheckBox checkbox = new JCheckBox(ainesosa);
+            lisaaValinnanKuuntelija(checkbox, ainesosa);
+            panel.add(checkbox);
+        }
         return panel;
     }
 
-    private JList luoListaAinesosista() {
-        JList lista = new JList(kaikkiAinesosat);
-        lista.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-        lista.setLayoutOrientation(JList.HORIZONTAL_WRAP);
-        lista.setVisibleRowCount(-1);
-        JScrollPane listScroller = new JScrollPane(lista);
-        listScroller.setPreferredSize(new Dimension(150, 60));
-
-        return lista;
-    }
-
-    private void muodostaListaAinesosista() {
-        AinesosalistojenLukija lukija = new AinesosalistojenLukija();
-        int i = 0;
-        for (String ainesosa : lukija.getAinesosaKategoria("kaikki")) {
-            kaikkiAinesosat[i] = ainesosa;
-            i++;
-        }
-    }
-
-    private void lisaaListavalinnanKuuntelija(JList lista) {
-        lista.addListSelectionListener(new ListSelectionListener() {
+    private void lisaaValinnanKuuntelija(JCheckBox checkbox, final String ainesosa) {
+        checkbox.addActionListener(new ActionListener() {
 
             @Override
-            public void valueChanged(ListSelectionEvent e) {
-                if (!e.getValueIsAdjusting()) {
-                    for (String ainesosa : (List<String>) lista.getSelectedValuesList()) {
-                        if (!reseptinAinesosat.contains(ainesosa)) {
-                            reseptinAinesosat.add(ainesosa);
-                            System.out.println(ainesosa);
-                        }
-                    }
-                }
+            public void actionPerformed(ActionEvent e) {
+                reseptinAinesosat.add(ainesosa);
             }
+            
+        });
+    }
+    
+    private void lisaaPalaaTakaisinNapinKuuntelija(JButton nappi, final JFrame frame) {
+        nappi.addActionListener(new ActionListener() {
 
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+            }
+            
         });
     }
 }
