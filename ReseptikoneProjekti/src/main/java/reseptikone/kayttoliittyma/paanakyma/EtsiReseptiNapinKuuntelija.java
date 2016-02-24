@@ -1,9 +1,9 @@
-package reseptikone.kayttoliittyma.tapahtumankuuntelijat;
+package reseptikone.kayttoliittyma.paanakyma;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.SwingUtilities;
-import reseptikone.kayttoliittyma.nakymat.ReseptiNakyma;
+import reseptikone.kayttoliittyma.reseptinakymat.ReseptiNakyma;
 import reseptikone.logiikka.Kaappi;
 import reseptikone.logiikka.Kauppalista;
 import reseptikone.logiikka.reseptinhaku.Resepti;
@@ -18,7 +18,7 @@ public class EtsiReseptiNapinKuuntelija implements ActionListener {
 
     /**
      * Alustaa oliomuuttujan kaappi.
-     * 
+     *
      * @param kaappi käyttäjän kaappi
      */
     public EtsiReseptiNapinKuuntelija(Kaappi kaappi) {

@@ -1,7 +1,7 @@
 package reseptikone.kayttoliittyma;
 
 import javax.swing.SwingUtilities;
-import reseptikone.kayttoliittyma.nakymat.Paanakyma;
+import reseptikone.kayttoliittyma.paanakyma.Paanakyma;
 
 /**
  * Aloittaa ohjelman suorituksen.

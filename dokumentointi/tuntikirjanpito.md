@@ -93,3 +93,9 @@ Käytetty aika: 3 tuntia
 Ajankäytön kohde: Reseptin lisäämisen lisääminen käyttöliittymään, tai sen yrittäminen.
 
 Käytetty aika: viitisen tuntia
+
+**Keskiviikko 24.2.**
+
+Ajankäytön kohde: Jee reseptin lisääminen onnistuu! Lisäsin jotain virheilmoituksiakin ja valmistauduin demotilaisuuteen.
+
+Käytetty aika: 4 tuntia

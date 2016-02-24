@@ -36,11 +36,9 @@
                 <version>1.1.8</version>
                 <configuration>
                     <targetClasses>
-                        <param>reseptikone.kayttoliittyma.*</param>
                         <param>reseptikone.logiikka.*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>reseptikone.kayttoliittyma.*</param>
                         <param>reseptikone.logiikka.*</param>
                     </targetTests>
                 </configuration>

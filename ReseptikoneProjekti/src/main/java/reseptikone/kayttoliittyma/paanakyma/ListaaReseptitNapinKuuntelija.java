@@ -1,11 +1,11 @@
-package reseptikone.kayttoliittyma.tapahtumankuuntelijat;
+package reseptikone.kayttoliittyma.paanakyma;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
 import javax.swing.SwingUtilities;
-import reseptikone.kayttoliittyma.nakymat.KaikkiReseptitNakyma;
+import reseptikone.kayttoliittyma.reseptinakymat.KaikkiReseptitNakyma;
 import reseptikone.logiikka.reseptinhaku.Resepti;
 import reseptikone.logiikka.tiedostojenkasittely.TiedostonLukija;
 

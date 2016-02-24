@@ -1,4 +1,4 @@
-package reseptikone.kayttoliittyma.tapahtumankuuntelijat;
+package reseptikone.kayttoliittyma.paanakyma;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,7 +14,7 @@ public class AinesosavalinnanKuuntelija implements ActionListener {
 
     /**
      * Alustaa oliomuuttujat kaappi ja ainesosa.
-     * 
+     *
      * @param ainesosa valittu ainesosa
      * @param kaappi käyttäjän kaappi
      */
@@ -26,6 +26,7 @@ public class AinesosavalinnanKuuntelija implements ActionListener {
     /**
      * Painiketta painettaessa kuuntelija lisää valitun aineksen konstruktorin
      * parametrina saamaansa kaappiin.
+     *
      * @param e napin painallus
      */
     @Override

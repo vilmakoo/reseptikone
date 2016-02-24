@@ -1,9 +1,5 @@
-package reseptikone.kayttoliittyma.nakymat;
+package reseptikone.kayttoliittyma.paanakyma;
 
-import reseptikone.kayttoliittyma.tapahtumankuuntelijat.EtsiReseptiNapinKuuntelija;
-import reseptikone.kayttoliittyma.tapahtumankuuntelijat.AinesosavalinnanKuuntelija;
-import reseptikone.kayttoliittyma.tapahtumankuuntelijat.ListaaReseptitNapinKuuntelija;
-import reseptikone.kayttoliittyma.tapahtumankuuntelijat.ReseptinLisaysNakymanAvaaja;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -38,9 +34,9 @@ public class Paanakyma implements Runnable {
     /**
      * Määrittelee näkymän ja luo komponentit.
      * <p>
-     * Suljettaessa tämä ikkuna koko ohjelman suoritus loppuu.
-     * Komponentit: aloitusteksti, ainesosavalikko, painikkeet reseptin etsimiseen,
-     * lisäämiseen ja kaikkien reseptien listaamiseen.
+     * Komponentit: aloitusteksti, ainesosavalikko, painikkeet reseptin
+     * etsimiseen, lisäämiseen, kaikkien reseptien listaamiseen, ja kaapin
+     * tyhjentämiseen.
      */
     @Override
     public void run() {
@@ -55,7 +51,6 @@ public class Paanakyma implements Runnable {
         frame.setVisible(true);
     }
 
-    // sisältää yrityksen luoda jonkinlainen layout. ei onnistunut halutulla tavalla.
     private void luoKomponentit(Container container) {
         container.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
@@ -112,7 +107,7 @@ public class Paanakyma implements Runnable {
 
     private JPanel luoAlavalikko() {
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(1, 3));
+        panel.setLayout(new GridLayout(2, 2));
 
         JButton etsiReseptiNappi = new JButton("etsi resepti!");
         etsiReseptiNappi.addActionListener(new EtsiReseptiNapinKuuntelija(this.kaappi));
@@ -125,6 +120,10 @@ public class Paanakyma implements Runnable {
         JButton lisaaReseptiNappi = new JButton("lisää oma reseptisi!");
         lisaaReseptiNappi.addActionListener(new ReseptinLisaysNakymanAvaaja());
         panel.add(lisaaReseptiNappi);
+
+        JButton tyhjennaKaappiNappi = new JButton("poista valitut ainekset muistista");
+        tyhjennaKaappiNappi.addActionListener(new TyhjennaKaappiNapinKuuntelija(kaappi, this.frame));
+        panel.add(tyhjennaKaappiNappi);
 
         return panel;
     }

@@ -1,9 +1,8 @@
-package reseptikone.kayttoliittyma.tapahtumankuuntelijat;
+package reseptikone.kayttoliittyma.reseptinakymat;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.SwingUtilities;
-import reseptikone.kayttoliittyma.nakymat.ReseptiNakyma;
 import reseptikone.logiikka.reseptinhaku.Resepti;
 
 /**

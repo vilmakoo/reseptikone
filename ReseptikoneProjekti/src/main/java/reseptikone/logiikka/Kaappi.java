@@ -29,7 +29,7 @@ public class Kaappi {
      * 
      * @param ainesosa Käyttäjän kaapissa oleva ainesosa.
      */
-    public void lisaaAinesKaappiin(String ainesosa) { // nimeä paremmin!! kerroKaapinSisalto?
+    public void lisaaAinesKaappiin(String ainesosa) {
         for (String kaapissaOlevaAinesosa : this.kaapissaOlevatAinekset) {
             if (kaapissaOlevaAinesosa.equals(ainesosa)) {
                 return;
@@ -38,4 +38,10 @@ public class Kaappi {
         this.kaapissaOlevatAinekset.add(ainesosa);
     }
 
+    /**
+     * Tyhjentää kaapissaOlevatAinekset-arraylistin.
+     */
+    public void tyhjennaKaappi() {
+        kaapissaOlevatAinekset = new ArrayList<String>();
+    }
 }

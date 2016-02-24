@@ -79,4 +79,13 @@ public class KaappiTest {
         
         assertEquals(odotettuTulos, kaapinsisalto);
     }
+    
+    @Test
+    public void tyhjennaKaappiPoistaaKaapinSisallon() {
+        kaappi.lisaaAinesKaappiin("banaani");
+        kaappi.lisaaAinesKaappiin("appelsiini");
+        kaappi.tyhjennaKaappi();
+        
+        assertEquals(0, kaappi.getSisalto().size());
+    }
 }
