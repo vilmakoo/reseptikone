@@ -23,6 +23,7 @@ public class AinesosalistojenLukija {
         this.ainesosaKategoriat.add("kuivatuotteet");
         this.ainesosaKategoriat.add("maitotuotteetTms");
         this.ainesosaKategoriat.add("sailykkeet");
+        this.ainesosaKategoriat.add("mausteet");
         this.ainesosaKategoriat.add("kaikki");
     }
     

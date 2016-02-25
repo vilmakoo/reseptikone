@@ -34,7 +34,7 @@ public class AinesosalistojenLukijaTest {
 
     @Test
     public void metodiGetAinesosaJoukkoToimii() {
-        String halutaan = "banaani\ntomaatti\nherkkusieni\npaprika\nsipuli\nappelsiini\nmustikka\n";
+        String halutaan = "banaani\ntomaatti\nherkkusieni\npaprika\nsipuli\nappelsiini\nmustikka\nvalkosipuli\nchili\n";
         String saadaan = "";
         for (String ainesosa : listojenLukija.getAinesosaKategoria("kasvikset")) {
             saadaan = saadaan + ainesosa + "\n";
@@ -44,7 +44,7 @@ public class AinesosalistojenLukijaTest {
     
     @Test
     public void metodiGetKaikkiAinesosaJoukotToimii() {
-        String halutaan = "juomat kasvikset kuivatuotteet maitotuotteetTms sailykkeet kaikki ";
+        String halutaan = "juomat kasvikset kuivatuotteet maitotuotteetTms sailykkeet mausteet kaikki ";
         String saadaan = "";
         for (String ainesosa : listojenLukija.getKaikkiAinesosaKategoriat()) {
             saadaan = saadaan + ainesosa + " ";

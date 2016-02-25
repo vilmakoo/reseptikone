@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
@@ -64,7 +65,8 @@ public class ReseptiNakyma implements Runnable {
 
         JTextArea resepti = new JTextArea(this.resepti.toString());
         resepti.setEditable(false);
-        container.add(resepti);
+        JScrollPane scrollPane = new JScrollPane(resepti);
+        container.add(scrollPane);
 
         if (this.kauppalista != null) {
             JTextArea kauppalista = new JTextArea("Kauppalista: " + this.kauppalista.toString());

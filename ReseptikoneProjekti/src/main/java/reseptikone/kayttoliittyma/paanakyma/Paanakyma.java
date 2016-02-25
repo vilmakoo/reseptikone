@@ -81,7 +81,7 @@ public class Paanakyma implements Runnable {
 
     private JPanel luoAinesosaValikko() {
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(5, 1));
+        panel.setLayout(new GridLayout(6, 1));
         AinesosalistojenLukija lukija = new AinesosalistojenLukija();
 
         for (String ainesosaKategoria : lukija.getKaikkiAinesosaKategoriat()) {

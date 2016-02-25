@@ -5,3 +5,5 @@ paprika
 sipuli
 appelsiini
 mustikka
+valkosipuli
+chili
