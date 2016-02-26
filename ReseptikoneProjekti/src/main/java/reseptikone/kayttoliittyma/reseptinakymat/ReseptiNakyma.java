@@ -81,7 +81,7 @@ public class ReseptiNakyma implements Runnable {
         container.add(palaaTakaisin);
     }
 
-    private void lisaaPalaaTakaisinNapinKuuntelija(JButton nappi, JFrame frame) {
+    private void lisaaPalaaTakaisinNapinKuuntelija(JButton nappi, final JFrame frame) {
         nappi.addActionListener(new ActionListener() {
 
             @Override

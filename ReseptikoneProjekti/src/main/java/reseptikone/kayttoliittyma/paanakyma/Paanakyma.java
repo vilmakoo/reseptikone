@@ -121,7 +121,7 @@ public class Paanakyma implements Runnable {
         lisaaReseptiNappi.addActionListener(new ReseptinLisaysNakymanAvaaja());
         panel.add(lisaaReseptiNappi);
 
-        JButton tyhjennaKaappiNappi = new JButton("poista valitut ainekset muistista");
+        JButton tyhjennaKaappiNappi = new JButton("poista valitsemasi ainekset muistista");
         tyhjennaKaappiNappi.addActionListener(new TyhjennaKaappiNapinKuuntelija(kaappi, this.frame));
         panel.add(tyhjennaKaappiNappi);
 
