@@ -8,3 +8,15 @@ Reseptikone arpoo käyttäjälle sellaisen ruokaohjeen, jonka ainesosat ovat val
 [Aiheen kuvaus](dokumentointi/aiheenKuvausJaRakenne.md)
 
 [Tuntikirjanpito](dokumentointi/tuntikirjanpito.md)
+
+[Kaaviot](dokumentointi/Kaaviot)
+
+[Rakennekuvaus](dokumentointi/rakennekuvaus.md)
+
+[Käyttöohjeet](dokumentointi/kayttoohjeet.md)
+
+[JavaDoc](dokumentointi/javadoc)
+
+[pit-raportti](dokumentointi/pit)
+
+[Checkstyle](dokumentointi/checkstyle.html)
