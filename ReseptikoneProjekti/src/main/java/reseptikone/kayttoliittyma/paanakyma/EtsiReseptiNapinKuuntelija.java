@@ -38,16 +38,15 @@ public class EtsiReseptiNapinKuuntelija implements ActionListener {
     private void etsiResepti() {
         ReseptinEtsija etsija = new ReseptinEtsija(this.kaappi);
         Resepti resepti = etsija.etsiKayttajanKaapissaOlevaResepti();
-        if (resepti != null) {
-            ReseptiNakyma reseptinNayttaja = new ReseptiNakyma(resepti, null);
-            SwingUtilities.invokeLater(reseptinNayttaja);
-        } else {
+        ReseptiNakyma reseptinNayttaja = new ReseptiNakyma(resepti, null);
+
+        if (resepti == null) {
             resepti = etsija.etsiSeuraavaksiOptimaalisinResepti();
             Kauppalista kauppalista = new Kauppalista(resepti, this.kaappi.getSisalto());
-            ReseptiNakyma reseptinNayttaja = new ReseptiNakyma(resepti, kauppalista);
-            SwingUtilities.invokeLater(reseptinNayttaja);
+            reseptinNayttaja = new ReseptiNakyma(resepti, kauppalista);
         }
-
+        
+        SwingUtilities.invokeLater(reseptinNayttaja);
     }
 
 }

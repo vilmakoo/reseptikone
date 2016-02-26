@@ -39,8 +39,8 @@ public class TiedostonLukija {
     }
 
     /**
-     * Erillinen metodi listoja sisältävien tiedostojen (esimerkiksi ainesosa
-     * tiedostojen) lukemiseen.
+     * Erillinen metodi listoja sisältävien tiedostojen (esimerkiksi
+     * ainesosatiedostojen) lukemiseen.
      * <p>
      * Luetaan tiedoston sisältö ja muodostetaan ArrayList.
      *

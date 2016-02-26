@@ -23,10 +23,10 @@ public class Kaappi {
     /**
      * Metodi lisää ainesosan kaapissaOleviinAineksiin.
      * <p>
-     * Käyttäjälle annetaan lista kaikista ainesosista, joista hän sitten valitsee
-     * ne, jotka ovat kaapissaan. Tämän metodin avulla ne lisätään kaappi-olion
-     * ArrayListiin.
-     * 
+     * Käyttäjälle annetaan lista kaikista ainesosista, joista hän sitten
+     * valitsee ne, jotka ovat kaapissaan. Tämän metodin avulla ne lisätään
+     * kaappi-olion ArrayListiin.
+     *
      * @param ainesosa Käyttäjän kaapissa oleva ainesosa.
      */
     public void lisaaAinesKaappiin(String ainesosa) {

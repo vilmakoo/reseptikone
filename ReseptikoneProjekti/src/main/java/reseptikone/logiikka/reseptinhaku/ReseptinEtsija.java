@@ -1,7 +1,8 @@
 package reseptikone.logiikka.reseptinhaku;
 
 /**
- * Luokka sisältää toiminnan tiettyjä ainesosia sisältävän reseptin etsimistä varten.
+ * Luokka sisältää toiminnan tiettyjä ainesosia sisältävän reseptin etsimistä
+ * varten.
  */
 import java.io.File;
 import java.util.ArrayList;
@@ -19,11 +20,11 @@ public class ReseptinEtsija {
     /**
      * Konstruktori.
      * <p>
-     * Saa parametrinaan kaappi-olion, josta saadaan käyttäjän kaapissa 
-     * olevat ainesosat, minkä jälkeen luodaan lista reseptien nimistä ja alustetaan 
-     * HashMap, jonka avaimina ovat reseptit ja arvoina niistä puuttuvien ainesosien 
-     * määrä.
-     * 
+     * Saa parametrinaan kaappi-olion, josta saadaan käyttäjän kaapissa olevat
+     * ainesosat, minkä jälkeen luodaan lista reseptien nimistä ja alustetaan
+     * HashMap, jonka avaimina ovat reseptit ja arvoina niistä puuttuvien
+     * ainesosien määrä.
+     *
      * @param kayttajanKaappi käyttäjän kaappi
      */
     public ReseptinEtsija(Kaappi kayttajanKaappi) {
@@ -36,7 +37,6 @@ public class ReseptinEtsija {
         tiedostonLukija = new TiedostonLukija(new File("reseptit/reseptienNimet.md"));
         reseptienNimet = tiedostonLukija.palautaTiedostoListana();
     }
-    
 
     private void muodostaHashMapMahdollisistaResepteista() {
         for (String reseptinNimi : reseptienNimet) {
@@ -56,13 +56,12 @@ public class ReseptinEtsija {
     /**
      * Metodin avulla etsitään käyttäjän kaapissa oleva resepti.
      * <p>
-     * Ensin muodostetaan HashMap mahdollisista resepteistä. Sen jälkeen 
-     * käydään ne läpi ja valitaan sellainen, jonka ainekset ovat valmiina kaapissa. 
-     * Jos sellaista ei ole, palautetaan null.
-     * 
+     * Ensin muodostetaan HashMap mahdollisista resepteistä. Sen jälkeen käydään
+     * ne läpi ja valitaan sellainen, jonka ainekset ovat valmiina kaapissa. Jos
+     * sellaista ei ole, palautetaan null.
+     *
      * @return palautettava resepti
      */
-    
     public Resepti etsiKayttajanKaapissaOlevaResepti() {
         muodostaHashMapMahdollisistaResepteista();
 
@@ -73,10 +72,11 @@ public class ReseptinEtsija {
         }
         return null;
     }
-    
+
     /**
-     * Jos ei ole valmiiksi kaapissa olevaa reseptiä, etsitään seuraavaksi optimaalisin.
-     * 
+     * Jos ei ole valmiiksi kaapissa olevaa reseptiä, etsitään seuraavaksi
+     * optimaalisin.
+     *
      * @return resepti
      */
     public Resepti etsiSeuraavaksiOptimaalisinResepti() {
@@ -92,7 +92,7 @@ public class ReseptinEtsija {
             }
         }
         Resepti palautettavaResepti = new Resepti(palautettavanReseptinNimi);
-        
+
         return palautettavaResepti;
     }
 

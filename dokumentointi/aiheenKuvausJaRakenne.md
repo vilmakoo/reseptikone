@@ -1,4 +1,4 @@
-**Aihe:** Reseptikone. Toimii periaatteella ”reseptit, jotka ovat jo jääkaapissasi”. Koneeseen syötetään kaapissa olevat ruoka-aineet ja kone arpoo ruokaohjeen, jonka näistä aineksista saa aikaiseksi. Jos ei löydy reseptiä, johon kaikki ainekset löytyvät valmiina, kone kertoo sellaisen reseptin, josta käyttäjältä puuttuu mahdollisimman vähän aineksia, sekä antaa kauppalistan puuttuvista aineksista.
+***Aihe:*** Reseptikone. Toimii periaatteella ”reseptit, jotka ovat jo jääkaapissasi”. Koneeseen syötetään kaapissa olevat ruoka-aineet ja kone arpoo ruokaohjeen, jonka näistä aineksista saa aikaiseksi. Jos ei löydy reseptiä, johon kaikki ainekset löytyvät valmiina, kone kertoo sellaisen reseptin, josta käyttäjältä puuttuu mahdollisimman vähän aineksia, sekä antaa kauppalistan puuttuvista aineksista.
 Käyttäjä voi myös hakea listauksen kaikista koneen sisältämistä resepteistä ja lisätä oman reseptinsä.
 
 **Käyttäjät:** Koneen käyttäjä
@@ -9,14 +9,15 @@ Käyttäjä voi myös hakea listauksen kaikista koneen sisältämistä resepteis
 - kaikkien reseptien listaus
 - reseptien lisääminen
 
-**Luokkakaavio:**
 
-![Luokkakaavio](Kaaviot/Luokkakaavio3.png)
+***Luokkakaavio:***
 
-(edit later -osoite: http://yuml.me/edit/173a1b43)
+![Luokkakaavio](Kaaviot/Luokkakaavio4.png)
+
+[edit later](http://yuml.me/edit/75be0665)
 
 
-**Sekvenssikaaviot:**
+***Sekvenssikaaviot:***
 
 
 ![AinesosienValitseminen](Kaaviot/aineksienValintaSekvenssiKaavio.png)

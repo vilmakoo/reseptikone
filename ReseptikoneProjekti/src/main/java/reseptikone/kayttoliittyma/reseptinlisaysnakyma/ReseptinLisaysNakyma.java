@@ -22,10 +22,11 @@ import reseptikone.logiikka.tiedostojenkasittely.AinesosalistojenLukija;
 public class ReseptinLisaysNakyma implements Runnable {
 
     private JFrame frame;
-    private String reseptinNimi;
     private ArrayList<String> reseptinAinesosat;
-    private String ohje;
 
+    /**
+     * Luo ArrayListin reseptin ainesosia varten.
+     */
     public ReseptinLisaysNakyma() {
         reseptinAinesosat = new ArrayList<String>();
     }

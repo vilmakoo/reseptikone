@@ -99,3 +99,16 @@ Käytetty aika: viitisen tuntia
 Ajankäytön kohde: Jee reseptin lisääminen onnistuu! Lisäsin jotain virheilmoituksiakin ja valmistauduin demotilaisuuteen.
 
 Käytetty aika: 4 tuntia
+
+**Torstai 25.2.**
+
+Ajankäytön kohde: Demotilaisuus.
+
+Käytetty aika: 2 tuntia
+
+**Perjantai 26.2.**
+
+Ajankäytön kohde: Koodin siistimistä, uusi luokkakaavio, rakennekuvaus, käyttöohjeen, jar-tiedosto + toki uudet checkstyle ja pit-raportit
+
+Käytetty aika: 2 tuntia
+

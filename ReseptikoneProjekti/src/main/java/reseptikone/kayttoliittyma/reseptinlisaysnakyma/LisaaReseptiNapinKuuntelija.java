@@ -1,6 +1,5 @@
 package reseptikone.kayttoliittyma.reseptinlisaysnakyma;
 
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -9,7 +8,6 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.WindowConstants;
 import reseptikone.logiikka.reseptinhaku.ReseptinLisaaja;
 import reseptikone.logiikka.tiedostojenkasittely.TiedostonLukija;
 
@@ -75,6 +73,7 @@ public class LisaaReseptiNapinKuuntelija implements ActionListener {
                     "Done!",
                     "Ilmoitus",
                     JOptionPane.PLAIN_MESSAGE);
+            ainesosat = new ArrayList<String>();
         }
     }
 

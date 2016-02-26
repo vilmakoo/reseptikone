@@ -6,18 +6,19 @@ import java.util.ArrayList;
 /**
  * Kauppalista kertoo ne ainesosat, jotka käyttäjältä puuttuvat.
  */
-public class Kauppalista { 
+public class Kauppalista {
 
     private ArrayList<String> kauppalista;
     private ArrayList<String> reseptinAinesosat;
     private ArrayList<String> kaapissaOlevatAinesosat;
 
     /**
-     * Konstruktori saa parametrinaan reseptin, jota ollaan tekemisissä, ja listan 
-     * ainesosista, jotka ovat valmiiksi käyttäjän kaapissa.
+     * Konstruktori saa parametrinaan reseptin, jota ollaan tekemisissä, ja
+     * listan ainesosista, jotka ovat valmiiksi käyttäjän kaapissa.
      * <p>
-     * Suoritetaan oliomuuttujien alustus ja kutsutaan kauppalistan luovaa metodia.
-     * 
+     * Suoritetaan oliomuuttujien alustus ja kutsutaan kauppalistan luovaa
+     * metodia.
+     *
      * @param resepti käyttäjän saama resepti
      * @param kaapissaOlevatAinesosat käyttäjän kaapissa olevat ainekset
      */
@@ -25,10 +26,10 @@ public class Kauppalista {
         this.kauppalista = new ArrayList<String>();
         this.reseptinAinesosat = resepti.getAinesosat();
         this.kaapissaOlevatAinesosat = kaapissaOlevatAinesosat;
-        
+
         this.luoKauppalista();
     }
-    
+
     private void luoKauppalista() {
         for (String ainesosa : this.reseptinAinesosat) {
             if (!this.kaapissaOlevatAinesosat.contains(ainesosa)) {
@@ -37,10 +38,10 @@ public class Kauppalista {
             }
         }
     }
-    
+
     /**
      * Metodi palauttaa kauppalistan merkkijonona.
-     * 
+     *
      * @return kauppalista
      */
     @Override

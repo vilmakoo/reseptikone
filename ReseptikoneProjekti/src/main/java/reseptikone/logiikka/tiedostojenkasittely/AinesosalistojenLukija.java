@@ -4,8 +4,8 @@ import java.io.File;
 import java.util.ArrayList;
 
 /**
- * Luokka lukee kaikki mahdolliset ainesosat sisältäviä tiedostoja ja sisältää metodeja
- * joiden avulla niistä voidaan luoda palautettavia ArrayListeja.
+ * Luokka lukee kaikki mahdolliset ainesosat sisältäviä tiedostoja ja sisältää
+ * metodeja joiden avulla niistä voidaan luoda palautettavia ArrayListeja.
  */
 public class AinesosalistojenLukija {
 
@@ -13,8 +13,8 @@ public class AinesosalistojenLukija {
     private ArrayList<String> ainesosaKategoriat; // lista kaikista ainesosakategorioista
 
     /**
-     * Konstruktori luo ArrayListin, joka sisältää kaikkien ainesosakategorioiden 
-     * nimet.
+     * Konstruktori luo ArrayListin, joka sisältää kaikkien
+     * ainesosakategorioiden nimet.
      */
     public AinesosalistojenLukija() {
         this.ainesosaKategoriat = new ArrayList<String>();
@@ -26,7 +26,7 @@ public class AinesosalistojenLukija {
         this.ainesosaKategoriat.add("mausteet");
         this.ainesosaKategoriat.add("kaikki");
     }
-    
+
     public ArrayList<String> getKaikkiAinesosaKategoriat() {
         return this.ainesosaKategoriat;
     }
@@ -44,11 +44,12 @@ public class AinesosalistojenLukija {
     }
 
     /**
-     * Palauttaa tietyn kategorian (esimerkiksi juomat) sisältämien ainesosien nimet.
+     * Palauttaa tietyn kategorian (esimerkiksi juomat) sisältämien ainesosien
+     * nimet.
      * <p>
-     * Kutsuu metodia muodostaArrayList, joka lukee ainesosat tiedostosta
-     * ja muodostaa niistä ArrayListin.
-     * 
+     * Kutsuu metodia muodostaArrayList, joka lukee ainesosat tiedostosta ja
+     * muodostaa niistä ArrayListin.
+     *
      * @param ainesosaKategorianNimi halutun ainesosakategorian nimi
      * @return lista ainesosista
      */
