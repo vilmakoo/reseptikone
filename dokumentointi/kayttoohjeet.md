@@ -1,6 +1,6 @@
-##Reseptikoneen käyttöohjeet
+#Reseptikoneen käyttöohjeet
 
-#Toiminnot:
+##Toiminnot:
 
 Jos käytät konetta ensimmäisen kerran, niin aloitusnäkymässä voit valita käytännössä kolmesta vaihtoehdosta haluamasi toiminnon.
 
