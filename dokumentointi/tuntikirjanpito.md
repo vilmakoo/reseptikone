@@ -112,3 +112,8 @@ Ajankäytön kohde: Koodin siistimistä, uusi luokkakaavio, rakennekuvaus, käyt
 
 Käytetty aika: 2 tuntia
 
+**Torstai 3.2.**
+
+Ajankäytön kohde: Päänäkymän muokkaamista, netbeansiin turhautumista
+
+Käytetty aika: 4 tuntia

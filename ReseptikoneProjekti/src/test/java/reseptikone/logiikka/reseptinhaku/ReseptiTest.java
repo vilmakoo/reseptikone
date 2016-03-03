@@ -92,6 +92,7 @@ public class ReseptiTest {
     
     @Test
     public void toStringToimiiOikein() {
-        assertEquals("Tarvitset:\nmaitoa\njauhoa\n\nSekoita ainekset keskenään\n", velli.toString());
+        Resepti hernekeitto = new Resepti("helppo_hernekeitto");
+        assertEquals("Tarvitset:\npurkin hernekeittoa\n\nToimi hernekeittopurkin ohjeiden mukaan.\n", hernekeitto.toString());
     }
 }
