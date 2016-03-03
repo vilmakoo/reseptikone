@@ -1,6 +1,5 @@
 soijarouhe
 makaroni
 riisi
-auringonkukansiemenet
 cashewpähkinät
 punaiset linssit

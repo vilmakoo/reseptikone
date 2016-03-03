@@ -69,7 +69,7 @@ public class ReseptiNakyma implements Runnable {
         container.add(scrollPane);
 
         if (this.kauppalista != null) {
-            JTextArea kauppalista = new JTextArea("Kauppalista: " + this.kauppalista.toString());
+            JTextArea kauppalista = new JTextArea("Kauppalista:\n" + this.kauppalista.toString());
             kauppalista.setEditable(false);
             container.add(kauppalista);
         } else {

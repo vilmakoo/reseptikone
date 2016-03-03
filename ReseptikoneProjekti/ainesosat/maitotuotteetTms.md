@@ -1,5 +1,4 @@
 maito
 maitorahka
 soijajuoma
-turkkilainen jogurtti
 juusto
