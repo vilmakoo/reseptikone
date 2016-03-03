@@ -35,7 +35,7 @@ public class KaikkiReseptitNakyma implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Kaikki reseptit");
-        frame.setPreferredSize(new Dimension(1300, 800));
+        frame.setPreferredSize(new Dimension(1000, 500));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         luoKomponentit(frame.getContentPane());

@@ -23,7 +23,7 @@ public class Kauppalista {
      * @param kaapissaOlevatAinesosat käyttäjän kaapissa olevat ainekset
      */
     public Kauppalista(Resepti resepti, ArrayList<String> kaapissaOlevatAinesosat) {
-        this.kauppalista = new ArrayList<String>();
+        
         this.reseptinAinesosat = resepti.getAinesosat();
         this.kaapissaOlevatAinesosat = kaapissaOlevatAinesosat;
 
@@ -31,6 +31,7 @@ public class Kauppalista {
     }
 
     private void luoKauppalista() {
+        this.kauppalista = new ArrayList<String>();
         for (String ainesosa : this.reseptinAinesosat) {
             if (!this.kaapissaOlevatAinesosat.contains(ainesosa)) {
                 // ehtolause tutkii, onko kaapissa reseptiin tarvittava ainesosa valmiina
@@ -48,7 +49,7 @@ public class Kauppalista {
     public String toString() {
         String lista = "";
         for (String ainesosa : this.kauppalista) {
-            lista = lista + ainesosa + "\n";
+            lista += ainesosa + "\n";
         }
         return lista;
     }

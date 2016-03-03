@@ -84,6 +84,7 @@ public class ReseptinEtsijaTest {
         kaappi.lisaaAinesKaappiin("mustikka");
         kaappi.lisaaAinesKaappiin("appelsiini");
         kaappi.lisaaAinesKaappiin("maitorahka");
+        kaappi.lisaaAinesKaappiin("soijajuoma");
         etsija = new ReseptinEtsija(kaappi);
         assertEquals("hedelmasmoothie", etsija.etsiSeuraavaksiOptimaalisinResepti().getNimi());
     }

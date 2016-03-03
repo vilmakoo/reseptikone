@@ -92,6 +92,6 @@ public class ReseptiTest {
     
     @Test
     public void toStringToimiiOikein() {
-        assertEquals(velli.toString(), "Tarvitset:\nmaitoa\njauhoa\n\nSekoita ainekset keskenään\n");
+        assertEquals("Tarvitset:\nmaitoa\njauhoa\n\nSekoita ainekset keskenään\n", velli.toString());
     }
 }

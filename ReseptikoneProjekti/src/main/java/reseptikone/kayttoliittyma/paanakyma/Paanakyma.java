@@ -1,5 +1,6 @@
 package reseptikone.kayttoliittyma.paanakyma;
 
+import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -10,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
@@ -43,7 +45,7 @@ public class Paanakyma implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Reseptinhakukone");
-        frame.setPreferredSize(new Dimension(1300, 800));
+        frame.setPreferredSize(new Dimension(1000, 500));
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,31 +56,15 @@ public class Paanakyma implements Runnable {
     }
 
     private void luoKomponentit(Container container) {
-        container.setLayout(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints();
+        container.setLayout(new GridLayout(4, 1));
 
         JLabel teksti = new JLabel("Tämä on reseptikone. Kerro kaappisi sisältö "
-                + "ja kone antaa sinulle reseptin!\n");
-        c.fill = GridBagConstraints.HORIZONTAL;
-//        c.anchor = GridBagConstraints.PAGE_START;
-        c.gridwidth = 3;
-        c.gridx = 0;
-        c.gridy = 0;
-        container.add(teksti, c);
-
-        c.fill = GridBagConstraints.HORIZONTAL;
-//        c.anchor = GridBagConstraints.CENTER;
-        c.gridwidth = 3;
-        c.gridx = 0;
-        c.gridy = 1;
-        container.add(luoAinesosaValikko(), c);
-
-        c.fill = GridBagConstraints.HORIZONTAL;
-//        c.anchor = GridBagConstraints.PAGE_END;
-        c.gridwidth = 3;
-        c.gridx = 1;
-        c.gridy = 2;
-        container.add(luoAlavalikko(), c);
+                + "ja kone antaa sinulle reseptin! Voit myös saada listan kaikista resepteistä "
+                + "tai lisätä omasi!");
+        container.add(teksti);
+        container.add(luoAinesosaValikko());
+        container.add(new JLabel(""));
+        container.add(luoAlavalikko());
     }
 
     private JPanel luoAinesosaValikko() {
@@ -99,7 +85,7 @@ public class Paanakyma implements Runnable {
     private JPanel luoCheckBoxValikko(AinesosalistojenLukija lukija, String ainesosaKategoria) {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
-        
+
         JPanel lista = new JPanel();
         lista.setLayout(new BoxLayout(lista, BoxLayout.PAGE_AXIS));
 
@@ -110,10 +96,10 @@ public class Paanakyma implements Runnable {
         }
 
         panel.add(new JLabel(ainesosaKategoria));
-        
+
         JScrollPane scrollpane = new JScrollPane(lista);
         panel.add(scrollpane);
-        
+
         return panel;
     }
 
@@ -138,9 +124,5 @@ public class Paanakyma implements Runnable {
         panel.add(tyhjennaKaappiNappi);
 
         return panel;
-    }
-
-    public JFrame getFrame() {
-        return frame;
     }
 }

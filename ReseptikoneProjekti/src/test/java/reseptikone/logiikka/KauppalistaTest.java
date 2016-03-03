@@ -74,15 +74,6 @@ public class KauppalistaTest {
         String ohje = "Tarvitset:\nmaitoa\njauhoa\n\nSekoita ainekset keskenään";
         reseptinLisaaja.lisaaResepti(nimi, ainesosat, ohje);
     }
-
-    public ArrayList<String> resepti() {
-        ArrayList<String> ainekset = new ArrayList<String>();
-        String maito = "maito";
-        String jauho = "jauho";
-        ainekset.add(maito);
-        ainekset.add(jauho);
-        return ainekset;
-    }
     
     @Test
     public void kauppalistaOnSamaKuinReseptinAineksetJosKaapissaEiOleMitaan() throws FileNotFoundException, IOException {

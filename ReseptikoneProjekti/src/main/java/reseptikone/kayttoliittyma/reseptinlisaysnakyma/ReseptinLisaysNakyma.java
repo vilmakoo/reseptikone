@@ -40,7 +40,7 @@ public class ReseptinLisaysNakyma implements Runnable {
     @Override
     public void run() {
         frame = new JFrame("Lisää resepti");
-        frame.setPreferredSize(new Dimension(1300, 800));
+        frame.setPreferredSize(new Dimension(1000, 500));
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -51,7 +51,7 @@ public class ReseptinLisaysNakyma implements Runnable {
     }
 
     private void luoKomponentit(Container container) {
-        container.setLayout(new GridLayout(7, 2));
+        container.setLayout(new GridLayout(4, 2));
 
         JLabel reseptinNimiTeksti = new JLabel("Anna reseptin nimi:");
         JTextField reseptinNimiKentta = new JTextField();
@@ -71,16 +71,10 @@ public class ReseptinLisaysNakyma implements Runnable {
 
         container.add(reseptinNimiTeksti);
         container.add(reseptinNimiKentta);
-        container.add(new JLabel(""));
-        container.add(new JLabel(""));
         container.add(ainesosaTeksti);
         container.add(scrollPane);
-        container.add(new JLabel(""));
-        container.add(new JLabel(""));
         container.add(ohjeTeksti);
         container.add(ohjeKentta);
-        container.add(new JLabel(""));
-        container.add(new JLabel(""));
         container.add(reseptinLisaysNappi);
         container.add(palaaTakaisinNappi);
     }
