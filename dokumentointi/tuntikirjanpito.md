@@ -117,3 +117,9 @@ Käytetty aika: 2 tuntia
 Ajankäytön kohde: Päänäkymän muokkaamista, netbeansiin turhautumista
 
 Käytetty aika: 4 tuntia
+
+**Perjantai 4.2.**
+
+Ajankäytön kohde: Ulkonäön siistimistä
+
+Käytetty aika: 1 tunti

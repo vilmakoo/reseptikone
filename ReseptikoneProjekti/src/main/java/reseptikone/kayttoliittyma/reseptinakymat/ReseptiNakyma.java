@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -76,9 +77,27 @@ public class ReseptiNakyma implements Runnable {
             container.add(new JLabel(""));
         }
 
-        JButton palaaTakaisin = new JButton("Palaa takaisin");
-        lisaaPalaaTakaisinNapinKuuntelija(palaaTakaisin, this.frame);
-        container.add(palaaTakaisin);
+        container.add(palaaTakaisin());
+    }
+    
+    private JPanel palaaTakaisin() {
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(3, 3));
+        
+        JButton palaaTakaisinNappi = new JButton("Palaa takaisin");
+        lisaaPalaaTakaisinNapinKuuntelija(palaaTakaisinNappi, this.frame);
+        
+        panel.add(new JLabel(""));
+        panel.add(new JLabel(""));
+        panel.add(new JLabel(""));
+        panel.add(new JLabel(""));
+        panel.add(palaaTakaisinNappi);
+        panel.add(new JLabel(""));
+        panel.add(new JLabel(""));
+        panel.add(new JLabel(""));
+        panel.add(new JLabel(""));
+        
+        return panel;
     }
 
     private void lisaaPalaaTakaisinNapinKuuntelija(JButton nappi, final JFrame frame) {

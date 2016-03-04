@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 import reseptikone.logiikka.reseptinhaku.Resepti;
 
@@ -45,7 +46,7 @@ public class KaikkiReseptitNakyma implements Runnable {
     }
 
     private void luoKomponentit(Container container) {
-        container.setLayout(new GridLayout(reseptit.size() + 2, 1));
+        container.setLayout(new GridLayout(reseptit.size() + 1, 1));
 
         for (Resepti resepti : this.reseptit) {
             JButton reseptiNappi = new JButton(resepti.getNimi());
@@ -53,11 +54,27 @@ public class KaikkiReseptitNakyma implements Runnable {
             container.add(reseptiNappi);
         }
 
-        container.add(new JLabel(""));
-
+        container.add(palaaTakaisin());
+    }
+    
+    private JPanel palaaTakaisin() {
+        JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(3, 3));
+        
         JButton palaaTakaisinNappi = new JButton("Palaa takaisin");
         lisaaPalaaTakaisinNapinKuuntelija(palaaTakaisinNappi, this.frame);
-        container.add(palaaTakaisinNappi);
+        
+        panel.add(new JLabel(""));
+        panel.add(new JLabel(""));
+        panel.add(new JLabel(""));
+        panel.add(new JLabel(""));
+        panel.add(palaaTakaisinNappi);
+        panel.add(new JLabel(""));
+        panel.add(new JLabel(""));
+        panel.add(new JLabel(""));
+        panel.add(new JLabel(""));
+        
+        return panel;
     }
 
     private void lisaaPalaaTakaisinNapinKuuntelija(JButton nappi, final JFrame frame) {
