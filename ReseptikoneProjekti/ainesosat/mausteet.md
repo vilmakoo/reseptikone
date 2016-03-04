@@ -1,2 +1,10 @@
 suola
 mustapippuri
+timjami
+basilika
+chilikastike
+valkoviinietikka
+hunaja
+sinappi
+ketsuppi
+soijakastike

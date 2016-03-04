@@ -1,3 +1,6 @@
 hedelmasmoothie
 linssikeitto
-helppo_hernekeitto
+papukastike
+soijarouhemakaronilaatikko
+sienikastike
+tofuhampurilainen

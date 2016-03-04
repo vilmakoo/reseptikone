@@ -1,0 +1,9 @@
+sipuli
+valkosipuli
+tomaattimurska
+pavut
+suola
+mustapippuri
+basilika
+chilikastike
+chilikastike

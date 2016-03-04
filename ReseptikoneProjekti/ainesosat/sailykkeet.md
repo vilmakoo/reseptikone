@@ -3,3 +3,5 @@ herkkusieni
 ananas
 kikherne
 hernekeitto
+pavut
+ananas

@@ -2,3 +2,13 @@ maito
 maitorahka
 soijajuoma
 juusto
+voi
+kaakao
+kookosmaito
+ruokakerma
+jäätelö
+jogurtti
+kaurakerma
+kananmuna
+tofu
+majoneesi

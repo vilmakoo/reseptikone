@@ -98,9 +98,10 @@ public class ReseptinLisaysNakyma implements Runnable {
         
         JLabel ohjeTeksti = new JLabel("Kirjoita ohje, sisältäen ainesosat ja niiden määrät:");
         ohjeKentta = new JTextArea();
+        JScrollPane scrollpane = new JScrollPane(ohjeKentta);
         
         panel.add(ohjeTeksti);
-        panel.add(ohjeKentta);
+        panel.add(scrollpane);
         
         return panel;
     }

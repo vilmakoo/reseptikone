@@ -7,3 +7,11 @@ appelsiini
 mustikka
 valkosipuli
 chili
+omena
+parsakaali
+porkkana
+kurkku
+munakoiso
+sitruuna
+peruna
+mansikka
