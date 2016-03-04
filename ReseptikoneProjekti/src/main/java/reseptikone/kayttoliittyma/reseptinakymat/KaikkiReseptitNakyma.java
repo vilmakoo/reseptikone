@@ -9,8 +9,13 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ListSelectionModel;
 import javax.swing.WindowConstants;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import reseptikone.logiikka.reseptinhaku.Resepti;
 
 /**
@@ -20,6 +25,8 @@ public class KaikkiReseptitNakyma implements Runnable {
 
     private ArrayList<Resepti> reseptit;
     private JFrame frame;
+    private JList listaResepteista;
+    private String[] reseptitTaulukkona;
 
     /**
      * Luo kaikki reseptit sisältävän ArrayListin.
@@ -46,34 +53,46 @@ public class KaikkiReseptitNakyma implements Runnable {
     }
 
     private void luoKomponentit(Container container) {
-        container.setLayout(new GridLayout(reseptit.size() + 1, 1));
+        container.setLayout(new GridLayout(2, 3));
+
+        reseptitTaulukkona = new String[reseptit.size()];
+        int indeksi = 0;
 
         for (Resepti resepti : this.reseptit) {
-            JButton reseptiNappi = new JButton(resepti.getNimi());
-            reseptiNappi.addActionListener(new ReseptiNapinKuuntelija(resepti));
-            container.add(reseptiNappi);
+            reseptitTaulukkona[indeksi] = resepti.getNimi();
+            indeksi++;
         }
 
-        container.add(palaaTakaisin());
+        listaResepteista = new JList(reseptitTaulukkona);
+        listaResepteista.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        listaResepteista.setLayoutOrientation(JList.VERTICAL);
+        listaResepteista.setVisibleRowCount(-1);
+        
+        JScrollPane scrollpane = new JScrollPane(listaResepteista);
+        
+        container.add(new JLabel(""));
+        container.add(scrollpane);
+        container.add(new JLabel(""));
+        container.add(new JLabel(""));
+        container.add(alavalikko());
+        container.add(new JLabel(""));
     }
-    
-    private JPanel palaaTakaisin() {
+
+    private JPanel alavalikko() {
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(3, 3));
+        panel.setLayout(new GridLayout(4, 0));
+
+        JButton naytaResepti = new JButton("Näytä valittu resepti");
+        naytaResepti.addActionListener(new ReseptiNapinKuuntelija(listaResepteista, this.frame, reseptitTaulukkona));
         
         JButton palaaTakaisinNappi = new JButton("Palaa takaisin");
         lisaaPalaaTakaisinNapinKuuntelija(palaaTakaisinNappi, this.frame);
-        
+
         panel.add(new JLabel(""));
-        panel.add(new JLabel(""));
-        panel.add(new JLabel(""));
-        panel.add(new JLabel(""));
+        panel.add(naytaResepti);
         panel.add(palaaTakaisinNappi);
         panel.add(new JLabel(""));
-        panel.add(new JLabel(""));
-        panel.add(new JLabel(""));
-        panel.add(new JLabel(""));
-        
+
         return panel;
     }
 

@@ -52,14 +52,13 @@ public class Paanakyma implements Runnable {
     }
 
     private void luoKomponentit(Container container) {
-        container.setLayout(new GridLayout(4, 1));
+        container.setLayout(new GridLayout(3, 1));
 
         JLabel teksti = new JLabel("Tämä on reseptikone. Kerro kaappisi sisältö "
                 + "ja kone antaa sinulle reseptin! Voit myös saada listan kaikista resepteistä "
                 + "tai lisätä omasi!");
         container.add(teksti);
         container.add(luoAinesosaValikko());
-        container.add(new JLabel(""));
         container.add(luoAlavalikko());
     }
 
@@ -101,7 +100,10 @@ public class Paanakyma implements Runnable {
 
     private JPanel luoAlavalikko() {
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(2, 2));
+        panel.setLayout(new GridLayout(3, 2));
+        
+        panel.add(new JLabel(""));
+        panel.add(new JLabel(""));
 
         JButton etsiReseptiNappi = new JButton("etsi resepti!");
         etsiReseptiNappi.addActionListener(new EtsiReseptiNapinKuuntelija(this.kaappi));
