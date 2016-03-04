@@ -20,3 +20,5 @@ Reseptikone arpoo käyttäjälle sellaisen ruokaohjeen, jonka ainesosat ovat val
 [pit-raportti](dokumentointi/pit)
 
 [Checkstyle](dokumentointi/checkstyle.html)
+
+ps. en saanut jar-tiedostoa toimimaan laitoksen koneella tuplaklikkaamalla, mutta ReseptikoneProjekti-hakemistossa se toimii komentoriviltä ajamalla.
