@@ -120,6 +120,6 @@ Käytetty aika: 4 tuntia
 
 **Perjantai 4.2.**
 
-Ajankäytön kohde: Ulkonäön siistimistä, uudet pit- ja checkstyle-raportit. Huomasin, ettei jar-tiedosto toimi laitoksen koneella tuplaklikkaamalla, mutta toimii kuitenkin menemällä komentorivillä ReseptikoneProjektiin ja ajamalla sen siellä.
+Ajankäytön kohde: Ulkonäön siistimistä, uudet pit- ja checkstyle-raportit. Huomasin, ettei jar-tiedosto toimi laitoksen koneella tuplaklikkaamalla, mutta toimii kuitenkin menemällä komentorivillä ReseptikoneProjektiin ja ajamalla sen siellä. Myös reseptien lisäämistä. Loppupalautus!
 
-Käytetty aika: 2 tunti
+Käytetty aika: 5 tuntia

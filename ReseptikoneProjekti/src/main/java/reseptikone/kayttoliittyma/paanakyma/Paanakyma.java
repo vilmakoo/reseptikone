@@ -68,7 +68,7 @@ public class Paanakyma implements Runnable {
         AinesosalistojenLukija lukija = new AinesosalistojenLukija();
 
         for (String ainesosaKategoria : lukija.getKaikkiAinesosaKategoriat()) {
-            if (ainesosaKategoria.equals("kaikki")) {
+            if (ainesosaKategoria.equals("kaikki")) { // ei luoda erikseen kaikki ainesosat sisältävää listaa
                 break;
             } else {
                 panel.add(luoCheckBoxValikko(lukija, ainesosaKategoria));
@@ -77,6 +77,7 @@ public class Paanakyma implements Runnable {
         return panel;
     }
 
+    // luodaan checkbox-valikko yhdelle ainesosakategorialle
     private JPanel luoCheckBoxValikko(AinesosalistojenLukija lukija, String ainesosaKategoria) {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));

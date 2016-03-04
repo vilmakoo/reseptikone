@@ -1,7 +1,6 @@
 
 package reseptikone.logiikka;
 
-import reseptikone.logiikka.Kaappi;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -66,7 +65,7 @@ public class KaappiTest {
     }
     
     @Test
-    public void kerroKaapinSisaltoKertooKaikkiKaapissaOlevatAinekset() {
+    public void getSisaltoKertooKaikkiKaapissaOlevatAinekset() {
         kaappi.lisaaAinesKaappiin("banaani");
         kaappi.lisaaAinesKaappiin("appelsiini");
         kaappi.lisaaAinesKaappiin("kananmuna");

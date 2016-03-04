@@ -37,12 +37,14 @@ public class EtsiReseptiNapinKuuntelija implements ActionListener {
 
     private void etsiResepti() {
         ReseptinEtsija etsija = new ReseptinEtsija(this.kaappi);
+        // etsitään resepti olettaen, että löytyy suoraan käyttäjän kaapissa oleva resepti
         Resepti resepti = etsija.etsiKayttajanKaapissaOlevaResepti();
-        ReseptiNakyma reseptinNayttaja = new ReseptiNakyma(resepti, null);
+        ReseptiNakyma reseptinNayttaja = new ReseptiNakyma(resepti, null); // kauppalista on null, koska käyttäjällä
+                                                                            // on kaikki ainesosat
 
-        if (resepti == null) {
+        if (resepti == null) { // tilanne, jossa käyttäjällä ei ole kaikkia ainesosia mihinkään reseptiin
             resepti = etsija.etsiSeuraavaksiOptimaalisinResepti();
-            Kauppalista kauppalista = new Kauppalista(resepti, this.kaappi.getSisalto());
+            Kauppalista kauppalista = new Kauppalista(resepti, this.kaappi.getSisalto()); // luodaan kauppalista
             reseptinNayttaja = new ReseptiNakyma(resepti, kauppalista);
         }
         

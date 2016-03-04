@@ -13,7 +13,7 @@ import reseptikone.logiikka.reseptinhaku.Resepti;
 /**
  * Tapahtumankuuntelija reseptin näkemistä varten.
  * <p>
- * Resepti-napit ovat KaikkiReseptitNakymassa.
+ * Lista resepteistä on KaikkiReseptitNakymassa.
  */
 public class ReseptiNapinKuuntelija implements ActionListener {
 
@@ -31,14 +31,16 @@ public class ReseptiNapinKuuntelija implements ActionListener {
         this.frame = frame;
         lisaaListavalinnanKuuntelija(listaResepteista, this.frame, reseptitTaulukkona);
     }
-
+    
+    // lisää reseptilistalle, joka on siis JList, selectionlistenerin
     private void lisaaListavalinnanKuuntelija(final JList lista, JFrame frame, final String[] reseptit) {
         lista.addListSelectionListener(new ListSelectionListener() {
 
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 if (e.getValueIsAdjusting() == false) {
-                    valittuResepti = reseptit[lista.getSelectedIndex()];
+                    valittuResepti = reseptit[lista.getSelectedIndex()]; // valittu resepti on reseptitaulukossa
+                    // samassa indeksissä kuin listassakin
                 }
             }
         });
@@ -46,7 +48,7 @@ public class ReseptiNapinKuuntelija implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (valittuResepti == null) {
+        if (valittuResepti == null) { // jos reseptiä ei ole valittu, tulee virheilmoitus
             JOptionPane.showMessageDialog(frame,
                     "Valitse jokin resepti!",
                     "Virhe!",
@@ -56,7 +58,7 @@ public class ReseptiNapinKuuntelija implements ActionListener {
         }
     }
 
-    private void naytaResepti() {
+    private void naytaResepti() { // käytännössä luo reseptinäkymän ja avaa sen
         ReseptiNakyma nayttaja = new ReseptiNakyma(new Resepti(valittuResepti), null);
         SwingUtilities.invokeLater(nayttaja);
     }

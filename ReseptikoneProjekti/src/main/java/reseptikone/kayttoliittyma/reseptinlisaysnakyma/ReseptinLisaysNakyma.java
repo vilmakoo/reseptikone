@@ -15,11 +15,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import reseptikone.kayttoliittyma.paanakyma.AinesosavalinnanKuuntelija;
 import reseptikone.logiikka.tiedostojenkasittely.AinesosalistojenLukija;
 
 /**
- * Täällä tapahtuu reseptin lisääminen.
+ * Täällä annetaan reseptin lisäämiseen tarvittavat tiedot.
  */
 public class ReseptinLisaysNakyma implements Runnable {
 
@@ -39,7 +38,7 @@ public class ReseptinLisaysNakyma implements Runnable {
      * Määrittelee näkymän ja luo komponentit.
      * <p>
      * Komponentit: reseptin nimikenttä, ainesosakenttä ja ohjekenttä sekä
-     * painike reseptin lisäämiseen.
+     * painike reseptin lisäämiseen ja takaisin palaamiseen.
      */
     @Override
     public void run() {
@@ -124,6 +123,7 @@ public class ReseptinLisaysNakyma implements Runnable {
         return panel;
     }
 
+    // luodaan checkbox-valikot samalla tavalla, kuin päänäkymässäkin
     private JPanel luoCheckBoxValikko(AinesosalistojenLukija lukija, String ainesosaKategoria) {
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
@@ -145,6 +145,7 @@ public class ReseptinLisaysNakyma implements Runnable {
         return panel;
     }
 
+    // lisää actionlistenerin ainesosa-checkboxeille
     private void lisaaValinnanKuuntelija(JCheckBox checkbox, final String ainesosa) {
         checkbox.addActionListener(new ActionListener() {
 

@@ -45,16 +45,16 @@ public class ReseptinLisaajaTest {
     
     public void poistaVelliJaKaakaoReseptienNimista() throws FileNotFoundException, IOException {
         String nimetIlmanVelliaJaKaakaota = "";
-        Scanner lukija = new Scanner(new File("reseptit/reseptienNimet.md"));
-        while (lukija.hasNextLine()) {
-            String rivi = lukija.nextLine();
+        Scanner scanner = new Scanner(new File("reseptit/reseptienNimet.md"));
+        while (scanner.hasNextLine()) {
+            String rivi = scanner.nextLine();
             if (!rivi.equals("velli") && !rivi.equals("kaakao")) {
                 nimetIlmanVelliaJaKaakaota += rivi + "\n";
             } else {
                 break;
             }
         }
-        lukija.close();
+        scanner.close();
         FileWriter kirjoittaja = new FileWriter("reseptit/reseptienNimet.md");
         kirjoittaja.write(nimetIlmanVelliaJaKaakaota);
         kirjoittaja.close();
@@ -78,6 +78,7 @@ public class ReseptinLisaajaTest {
         lisaaja.lisaaResepti(nimi, ainesosat, ohje);
     }
 
+    // testit alkaa tästä
     @Test
     public void reseptinLisayksenJalkeenReseptitHakemistoSisaltaaReseptinOhjeTiedoston() {
         this.lisaaResepti();

@@ -13,8 +13,6 @@ import reseptikone.logiikka.tiedostojenkasittely.TiedostonLukija;
 
 /**
  * Tapahtumankuuntelija reseptin lisäämistä varten.
- * <p>
- * Ei tee vielä mitään.
  */
 public class LisaaReseptiNapinKuuntelija implements ActionListener {
 
@@ -47,6 +45,10 @@ public class LisaaReseptiNapinKuuntelija implements ActionListener {
 
     /**
      * Nappia painettaessa lisää reseptin koneeseen.
+     * <p>
+     * Resepti tarvitsee nimen, ainesosat ja ohjeen. Jos jotain näistä ei ole,
+     * näytetään virheilmoitus. Koneessa ei voi olla kahta tai useampaa
+     * samannimistä reseptiä.
      *
      * @param e napin painallus
      */

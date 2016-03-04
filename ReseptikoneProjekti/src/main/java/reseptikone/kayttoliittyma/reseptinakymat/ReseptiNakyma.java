@@ -28,7 +28,7 @@ public class ReseptiNakyma implements Runnable {
     /**
      * Saa resepti-, ja kauppalista-oliot.
      * <p>
-     * Kauppalista voi olla null (jos kaikki reseptiin tarvittavat ainesosat
+     * Kauppalista voi olla null (silloin kaikki reseptiin tarvittavat ainesosat
      * ovat käyttäjän kaapissa).
      *
      * @param resepti resepti, joka näytetään
@@ -80,6 +80,7 @@ public class ReseptiNakyma implements Runnable {
         container.add(palaaTakaisin());
     }
     
+    // metodi, joka luo palaaTakaisin-napin
     private JPanel palaaTakaisin() {
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(3, 3));

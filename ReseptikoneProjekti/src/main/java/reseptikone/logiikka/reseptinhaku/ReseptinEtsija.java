@@ -25,7 +25,8 @@ public class ReseptinEtsija {
      * HashMap, jonka avaimina ovat reseptit ja arvoina niistä puuttuvien
      * ainesosien määrä.
      *
-     * @param kayttajanKaappi käyttäjän kaappi
+     * @param kayttajanKaappi käyttäjän kaappi, jossa on lista kaapin
+     * ainesosista
      */
     public ReseptinEtsija(Kaappi kayttajanKaappi) {
         kayttajanKaapinSisalto = kayttajanKaappi.getSisalto();
@@ -75,7 +76,7 @@ public class ReseptinEtsija {
 
     /**
      * Jos ei ole valmiiksi kaapissa olevaa reseptiä, etsitään seuraavaksi
-     * optimaalisin.
+     * optimaalisin eli käyttöliittymässä kutsutaan tätä metodia.
      *
      * @return resepti
      */

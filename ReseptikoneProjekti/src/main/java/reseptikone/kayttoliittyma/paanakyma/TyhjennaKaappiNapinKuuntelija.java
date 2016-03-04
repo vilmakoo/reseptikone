@@ -8,6 +8,8 @@ import reseptikone.logiikka.Kaappi;
 
 /**
  * Kuuntelija kaapin sisällön poistamiselle, jolloin voi etsiä uuden reseptin.
+ * <p>
+ * Ei poista checkbox-valikkojen valintoja.
  *
  * @author vilma
  */

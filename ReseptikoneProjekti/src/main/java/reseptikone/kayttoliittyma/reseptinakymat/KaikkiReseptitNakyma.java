@@ -14,8 +14,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.WindowConstants;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import reseptikone.logiikka.reseptinhaku.Resepti;
 
 /**
@@ -58,12 +56,12 @@ public class KaikkiReseptitNakyma implements Runnable {
         reseptitTaulukkona = new String[reseptit.size()];
         int indeksi = 0;
 
-        for (Resepti resepti : this.reseptit) {
+        for (Resepti resepti : this.reseptit) { // lisätään reseptit taulukkoon
             reseptitTaulukkona[indeksi] = resepti.getNimi();
             indeksi++;
         }
 
-        listaResepteista = new JList(reseptitTaulukkona);
+        listaResepteista = new JList(reseptitTaulukkona); // luodaan JList taulukossa olevista resepteistä
         listaResepteista.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         listaResepteista.setLayoutOrientation(JList.VERTICAL);
         listaResepteista.setVisibleRowCount(-1);
@@ -96,6 +94,7 @@ public class KaikkiReseptitNakyma implements Runnable {
         return panel;
     }
 
+    // metodi, joka sulkee nykyisen näkymän ja näyttää edellisen
     private void lisaaPalaaTakaisinNapinKuuntelija(JButton nappi, final JFrame frame) {
         nappi.addActionListener(new ActionListener() {
 

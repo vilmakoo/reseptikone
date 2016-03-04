@@ -75,6 +75,7 @@ public class KauppalistaTest {
         reseptinLisaaja.lisaaResepti(nimi, ainesosat, ohje);
     }
     
+    // testit alkaa tästä
     @Test
     public void kauppalistaOnSamaKuinReseptinAineksetJosKaapissaEiOleMitaan() throws FileNotFoundException, IOException {
         lisaaResepti();

@@ -73,6 +73,7 @@ public class ReseptiTest {
         lisaaja.lisaaResepti(nimi, ainesosat, ohje);
     }
     
+    // testit alkaa tästä
     @Test
     public void getNimiPalauttaaReseptinNimenOikein() {
         assertEquals("velli", velli.getNimi());

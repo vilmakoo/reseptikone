@@ -71,6 +71,7 @@ public class ReseptinEtsijaTest {
         reseptinLisaaja.lisaaResepti(nimi, ainesosat, ohje);
     }
     
+    // testit alkaa tästä
     @Test
     public void reseptinEtsiminenPalauttaaReseptinJohonAinesosatOnKaapissa() throws IOException {
         lisaaResepti();

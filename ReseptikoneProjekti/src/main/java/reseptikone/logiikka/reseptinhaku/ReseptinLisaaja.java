@@ -15,13 +15,6 @@ public class ReseptinLisaaja {
     private String reseptinNimi;
 
     /**
-     * Konstruktoria kutsuttaessa luodaan ReseptinLisaaja-olio.
-     */
-    public ReseptinLisaaja() {
-
-    }
-
-    /**
      * Metodi lisää reseptin reseptit-hakemistoon.
      * <p>
      * Metodille annetaan reseptin tiedot ja se kutsuu luokan metodeja, joiden
